@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Sitter Coco | 福岡の保育士ベビーシッター・24時間対応</title>
+    <meta name="description" content="福岡県出身の現役保育士によるベビーシッター「Baby Sitter Coco」。24時間365日対応、病児保育、送迎、親子教室まで。有資格者が大切なお子様を守ります。">
+    <style>
+        /* --- 基本設定 --- */
+        :root {
+            --main-color: #f4a6a6; /* 温かみのあるピンク */
+            --accent-color: #d66d6d; /* 濃いピンク */
+            --text-color: #444444;
+            --bg-color: #faf9f6; /* 優しいオフホワイト */
+            --white: #ffffff;
+            --line-green: #06c755; /* LINEカラー */
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; }
+        img { max-width: 100%; height: auto; vertical-align: bottom; }
+        
+        /* --- レイアウト共通 --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* スマホでは簡易化のため非表示 */
+        }
+
+        /* --- ヒーローエリア（トップ画像） --- */
+        .hero {
+            background-color: var(--main-color);
+            /* ※ここに実際のメイン画像を背景設定すると良いです url('画像パス') */
+            background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3));
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-color);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: var(--line-green);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* --- 3つの安心ポイント --- */
+        .trust-points {
+            background: var(--white);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .trust-item {
+            background: #fff0f0;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .trust-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* --- コンセプト --- */
+        .concept p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* --- プロフィール --- */
+        .profile {
+            background: var(--white);
+        }
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .profile-img {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        .profile-img img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--main-color);
+        }
+        .profile-text {
+            flex: 2;
+        }
+
+        /* --- サービス一覧 --- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #ddd; /* ※ここに画像を設定 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-body {
+            padding: 20px;
+        }
+        .service-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* --- 料金表 --- */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .price-table th, .price-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .price-table th {
+            background: #fff0f0;
+            color: var(--accent-color);
+            width: 30%;
+        }
+
+        /* --- フッター --- */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px 80px; /* 下部はボタン用に余白 */
+        }
+        .sns-links {
+            margin: 20px 0;
+        }
+        .sns-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- 固定LINEボタン --- */
+        .fixed-line-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--line-green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* スマホ向け調整 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .profile-content { flex-direction: column; text-align: center; }
+            .price-table th, .price-table td { display: block; width: 100%; }
+            .price-table th { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Baby Sitter Coco</div>
+            <nav class="nav-menu">
+                <a href="#about">Cocoについて</a>
+                <a href="#service">サービス</a>
+                <a href="#price">料金</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>福岡の保育士ベビーシッター<br>Baby Sitter Coco</h1>
+            <p>24時間365日対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
+            <a href="https://lin.ee/BAxbob2" class="hero-btn">LINEで予約・相談する</a>
+        </div>
+    </div>
+
+    <section class="trust-points">
+        <div class="container">
+            <h2 class="section-title">安心・安全への取り組み</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">📛</div>
+                    <div class="trust-title">有資格者が対応</div>
+                    <p>保育士資格・幼稚園教諭免許を保有。保育園・幼稚園での担任経験もあるプロなので安心です。</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-title">保険加入済み</div>
+                    <p>万が一の事故に備え、賠償責任保険に加入しております。安全第一でサポートします。</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🤝</div>
+                    <div class="trust-title">事前面談あり</div>
+                    <p>初回は必ずオンラインまたは対面での面談を行い、お子様の様子やご要望を丁寧に伺います。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="concept">
+        <div class="container">
+            <h2 class="section-title">Cocoの想い</h2>
+            <p>「子どもがいるから働けない」「出かけられない」<br>そんな思いを持つパパ・ママを減らしたい。</p>
+            <p>生まれ育った福岡で、家族以外に頼れる「安心できる居場所」を作りたいと思い開業しました。</p>
+            <p>一人で悩まず、家族だけで抱え込まず、ぜひ私を頼ってください。<br>お子様の成長を一緒に見守るパートナーになります。</p>
+        </div>
+    </section>
+
+    <section class="profile">
+        <div class="container">
+            <h2 class="section-title">シッター紹介</h2>
+            <div class="profile-content">
+                <div class="profile-img">
+                    <img src="https://via.placeholder.com/250x250/f4a6a6/ffffff?text=Coco+Photo" alt="Sano Kotomi">
+                </div>
+                <div class="profile-text">
+                    <h3>Sano Kotomi</h3>
+                    <ul>
+                        <li>📍 福岡県出身</li>
+                        <li>🎓 中村学園大学短期大学部卒業</li>
+                        <li>📛 保育士資格・幼稚園教諭免許 取得</li>
+                        <li>🎹 特技：ピアノ・製作</li>
+                    </ul>
+                    <p style="margin-top:20px;">
+                        現在は個人のベビーシッターとしてだけでなく、親子教室、イベント運営、ママ会の開催など、幅広く活動しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-img-placeholder" style="background:#ffd1d1;">ベビーシッター画像</div>
+                    <div class="service-body">
+                        <div class="service-title">ベビーシッター</div>
+                        <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、公園遊びのサポートまで対応します。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img-placeholder" style="background:#ffeeb0;">親子教室画像</div>
+                    <div class="service-body">
+                        <div class="service-title">親子教室</div>
+                        <p>「育脳」をテーマにした遊びを提供。保育経験のある講師が、お子様の成長に合わせたカリキュラムを組みます。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img-placeholder" style="background:#d1ffd6;">イベント・ママ会画像</div>
+                    <div class="service-body">
+                        <div class="service-title">イベント・ママ会</div>
+                        <p>訪問アートワークショップ、季節のイベント、ママ同士の交流会など、親子の居場所作りを行っています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">基本料金（目安）</h2>
+            <table class="price-table">
+                <tr>
+                    <th>ベビーシッター</th>
+                    <td>1時間 2,000円〜<br><small>※早朝・夜間、病児保育などは別途オプション料金となります。</small></td>
+                </tr>
+                <tr>
+                    <th>親子イベント</th>
+                    <td>500円〜</td>
+                </tr>
+                <tr>
+                    <th>訪問アート</th>
+                    <td>1,000円〜</td>
+                </tr>
+                <tr>
+                    <th>交通費</th>
+                    <td>実費（福岡市内よりお伺いします）</td>
+                </tr>
+            </table>
+            <p style="text-align: center; margin-top: 20px;">
+                ※詳細な見積もりはLINEにてお問い合わせください。<br>
+                ※シッティング条件によって料金が異なります。
+            </p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Baby Sitter Coco</h3>
+            <p>福岡の保育士ベビーシッター</p>
+            <div class="sns-links">
+                <a href="http://www.instagram.com/baby_sitter_coco_" target="_blank">Instagram</a>
+                <a href="http://tiktok.com/@baby_sitter_coco_" target="_blank">TikTok</a>
+                <a href="http://youtube.com/@child_kotochannel" target="_blank">YouTube</a>
+            </div>
+            <p>お問い合わせ・ご予約は公式LINEより承っております。</p>
+            <p style="margin-top: 30px; font-size: 0.8rem;">&copy; Baby Sitter Coco All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://lin.ee/BAxbob2" class="fixed-line-btn" target="_blank">
+        <span>💬 LINEで予約・相談</span>
+    </a>
+
+</body>
+</html>
