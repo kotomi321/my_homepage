@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby Sitter Coco | 福岡の保育士ベビーシッター・24時間対応</title>
-    <meta name="description" content="福岡県出身の現役保育士によるベビーシッター「Baby Sitter Coco」。24時間365日対応、病児保育、送迎、親子教室まで。有資格者が大切なお子様を守ります。">
+    <title>Baby sitter coco | 福岡のベビーシッター・365日24時間対応</title>
+    <meta name="description" content="福岡県出身の元保育士ベビーシッター「Baby sitter coco」。365日24時間対応、病児・病後児保育、送迎、親子教室まで。有資格者が大切なお子様を守ります。">
     <style>
         /* --- 基本設定 --- */
         :root {
@@ -179,7 +179,7 @@
         /* --- サービス一覧 --- */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 20px;
         }
         .service-card {
@@ -188,14 +188,42 @@
             overflow: hidden;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            height: 400px;
         }
         .service-card:hover {
             transform: translateY(-5px);
         }
-        .service-img-placeholder {
+        .service-img-placeholder1 {
             width: 100%;
             height: 180px;
-            background: #ddd; /* ※ここに画像を設定 */
+            background: url(img/IMG_7821.PNG);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder2 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_art.jpg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder3 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_7821.PNG);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder4 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_7821.PNG);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -281,10 +309,10 @@
 
     <header>
         <div class="container header-inner">
-            <div class="logo">Baby Sitter Coco</div>
+            <div class="logo">Baby sitter coco</div>
             <nav class="nav-menu">
-                <a href="#about">Cocoについて</a>
-                <a href="#service">サービス</a>
+                <a href="#about">cocoについて</a>
+                <a href="#servce">サービス</a>
                 <a href="#price">料金</a>
                 <a href="#contact">お問い合わせ</a>
             </nav>
@@ -293,15 +321,15 @@
 
     <div class="hero">
         <div class="container">
-            <h1>福岡の保育士ベビーシッター<br>Baby Sitter Coco</h1>
-            <p>24時間365日対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
+            <h1>福岡のベビーシッター<br>Baby sitter coco</h1>
+            <p>365日24時間対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
             <a href="https://lin.ee/BAxbob2" class="hero-btn">LINEで予約・相談する</a>
         </div>
     </div>
 
     <section class="trust-points">
         <div class="container">
-            <h2 class="section-title">安心・安全への取り組み</h2>
+            <h2 class="section-title">安心・安全な保育を提供</h2>
             <div class="trust-grid">
                 <div class="trust-item">
                     <div class="trust-icon">📛</div>
@@ -324,9 +352,9 @@
 
     <section id="about" class="concept">
         <div class="container">
-            <h2 class="section-title">Cocoの想い</h2>
-            <p>「子どもがいるから働けない」「出かけられない」<br>そんな思いを持つパパ・ママを減らしたい。</p>
-            <p>生まれ育った福岡で、家族以外に頼れる「安心できる居場所」を作りたいと思い開業しました。</p>
+            <h2 class="section-title">私の想い</h2>
+            <p>「子どもがいるから働けない・出かけられない」<br>そんな思いを持つパパ・ママを減らしたい。</p>
+            <p>生まれ育った福岡で、家族以外に頼れる「安心な居場所」を作りたいと思い開業しました。</p>
             <p>一人で悩まず、家族だけで抱え込まず、ぜひ私を頼ってください。<br>お子様の成長を一緒に見守るパートナーになります。</p>
         </div>
     </section>
@@ -336,18 +364,18 @@
             <h2 class="section-title">シッター紹介</h2>
             <div class="profile-content">
                 <div class="profile-img">
-                    <img src="https://via.placeholder.com/250x250/f4a6a6/ffffff?text=Coco+Photo" alt="Sano Kotomi">
+                    <img src="./img/IMG_2422.jpeg" alt="Sano Kotomi">
                 </div>
                 <div class="profile-text">
                     <h3>Sano Kotomi</h3>
                     <ul>
                         <li>📍 福岡県出身</li>
                         <li>🎓 中村学園大学短期大学部卒業</li>
-                        <li>📛 保育士資格・幼稚園教諭免許 取得</li>
+                        <li>📛 保育士資格・幼稚園教諭免許・チャイルドコーチング資格</li>
                         <li>🎹 特技：ピアノ・製作</li>
                     </ul>
                     <p style="margin-top:20px;">
-                        現在は個人のベビーシッターとしてだけでなく、親子教室、イベント運営、ママ会の開催など、幅広く活動しています。
+                        現在は個人のベビーシッターだけでなく、親子教室、イベント運営、ママ会の開催など、幅広く活動しています。
                     </p>
                 </div>
             </div>
@@ -359,24 +387,31 @@
             <h2 class="section-title">サービス内容</h2>
             <div class="service-grid">
                 <div class="service-card">
-                    <div class="service-img-placeholder" style="background:#ffd1d1;">ベビーシッター画像</div>
+                    <div class="service-img-placeholder1"></div>
                     <div class="service-body">
                         <div class="service-title">ベビーシッター</div>
-                        <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、公園遊びのサポートまで対応します。</p>
+                        <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、外出サポートまで幅広く対応しております。企業内やサロン・美容室での託児、ウエディングシッターやイベントシッターなど幅広く活躍中！</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img-placeholder" style="background:#ffeeb0;">親子教室画像</div>
+                    <div class="service-img-placeholder2"></div>
                     <div class="service-body">
                         <div class="service-title">親子教室</div>
-                        <p>「育脳」をテーマにした遊びを提供。保育経験のある講師が、お子様の成長に合わせたカリキュラムを組みます。</p>
+                        <p>「育脳」をテーマにして五感を刺激する遊びを提供。お子様の成長に合わせたカリキュラムを組みます。保育園や幼稚園などでの出張レッスンも受け付けております。</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img-placeholder" style="background:#d1ffd6;">イベント・ママ会画像</div>
+                    <div class="service-img-placeholder3"></div>
                     <div class="service-body">
-                        <div class="service-title">イベント・ママ会</div>
-                        <p>訪問アートワークショップ、季節のイベント、ママ同士の交流会など、親子の居場所作りを行っています。</p>
+                        <div class="service-title">親子イベント・ママ会</div>
+                        <p>アートワークショップ、季節のイベント、交流会など、親子の居場所作りを行っています。</p>
+                    </div>
+                </div>
+                 <div class="service-card">
+                    <div class="service-img-placeholder4"></div>
+                    <div class="service-body">
+                        <div class="service-title">保育関係研修・交流会</div>
+                        <p>保育関係者向けの交流会や研修、ベビーシッターになるためのサポートをしております。</p>
                     </div>
                 </div>
             </div>
@@ -389,39 +424,39 @@
             <table class="price-table">
                 <tr>
                     <th>ベビーシッター</th>
-                    <td>1時間 2,000円〜<br><small>※早朝・夜間、病児保育などは別途オプション料金となります。</small></td>
+                    <td>1時間 1,800円〜<br><small>※お子様のご年齢・人数・保育内容によって料金異なります。</small></td>
                 </tr>
                 <tr>
-                    <th>親子イベント</th>
-                    <td>500円〜</td>
-                </tr>
-                <tr>
-                    <th>訪問アート</th>
-                    <td>1,000円〜</td>
+                    <th>オプション</th>
+                    <td>100円〜1000円<br><small>※サポート内容・レッスンなどによって追加の料金ございます。</small></td>
                 </tr>
                 <tr>
                     <th>交通費</th>
-                    <td>実費（福岡市内よりお伺いします）</td>
+                    <td>実費（福岡市内からお伺い）<br><small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small></td>
+                </tr>
+                <tr>
+                    <th>キャンセルポリシー</th>
+                    <td>サポート開始予定の48時間前からキャンセル料が発生いたします。</td>
                 </tr>
             </table>
             <p style="text-align: center; margin-top: 20px;">
-                ※詳細な見積もりはLINEにてお問い合わせください。<br>
-                ※シッティング条件によって料金が異なります。
+                ※詳細なお見積もりはLINEにてお問い合わせください。<br>
+                ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
             </p>
         </div>
     </section>
 
     <footer id="contact">
         <div class="container">
-            <h3>Baby Sitter Coco</h3>
-            <p>福岡の保育士ベビーシッター</p>
+            <h3>Baby sitter coco</h3>
+            <p>福岡のベビーシッター</p>
             <div class="sns-links">
                 <a href="http://www.instagram.com/baby_sitter_coco_" target="_blank">Instagram</a>
                 <a href="http://tiktok.com/@baby_sitter_coco_" target="_blank">TikTok</a>
                 <a href="http://youtube.com/@child_kotochannel" target="_blank">YouTube</a>
             </div>
             <p>お問い合わせ・ご予約は公式LINEより承っております。</p>
-            <p style="margin-top: 30px; font-size: 0.8rem;">&copy; Baby Sitter Coco All Rights Reserved.</p>
+            <p style="margin-top: 30px; font-size: 0.8rem;">&copy; Baby sitter coco All Rights Reserved.</p>
         </div>
     </footer>
 
