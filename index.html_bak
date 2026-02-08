@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby sitter coco | 福岡のベビーシッター・365日24時間対応</title>
+    <meta name="description" content="福岡県出身の元保育士ベビーシッター「Baby sitter coco」。365日24時間対応、病児・病後児保育、送迎、親子教室まで。有資格者が大切なお子様を守ります。">
+    <style>
+        /* --- 基本設定 --- */
+        :root {
+            --main-color: #f4a6a6; /* 温かみのあるピンク */
+            --accent-color: #d66d6d; /* 濃いピンク */
+            --text-color: #444444;
+            --bg-color: #faf9f6; /* 優しいオフホワイト */
+            --white: #ffffff;
+            --line-green: #06c755; /* LINEカラー */
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; }
+        img { max-width: 100%; height: auto; vertical-align: bottom; }
+        
+        /* --- レイアウト共通 --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* スマホでは簡易化のため非表示 */
+        }
+
+        /* --- ヒーローエリア（トップ画像） --- */
+        .hero {
+            background-color: var(--main-color);
+            /* ※ここに実際のメイン画像を背景設定すると良いです url('画像パス') */
+            background-image: url(img/IMG_3843.png);
+            
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-color);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: -1px -1px 3px rgba(255,255,255,0.8);
+        }
+        .hero p {
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: -1px -1px 1px rgba(255,255,255,0.8);
+        }
+        .hero-btn {
+            display: inline-block;
+            background: var(--line-green);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* --- 3つの安心ポイント --- */
+        .trust-points {
+            background: var(--white);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .trust-item {
+            background: #fff0f0;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .trust-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* --- コンセプト --- */
+        .concept p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* --- プロフィール --- */
+        .profile {
+            background: var(--white);
+        }
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .profile-img {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        .profile-img img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--main-color);
+        }
+        .profile-text {
+            flex: 2;
+        }
+
+        /* --- サービス一覧 --- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 400px;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-img-placeholder1 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_7821.PNG);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder2 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_2004.jpeg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder3 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_2006.jpeg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-img-placeholder4 {
+            width: 100%;
+            height: 180px;
+            background: url(img/IMG_2005.jpeg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .service-body {
+            padding: 20px;
+        }
+        .service-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* --- 料金表 --- */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .price-table th, .price-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .price-table th {
+            background: #fff0f0;
+            color: var(--accent-color);
+            width: 30%;
+        }
+
+        /* --- フッター --- */
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px 80px; /* 下部はボタン用に余白 */
+        }
+        .sns-links {
+            margin: 20px 0;
+        }
+        .sns-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- 固定LINEボタン --- */
+        .fixed-line-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--line-green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* スマホ向け調整 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .profile-content { flex-direction: column; text-align: center; }
+            .price-table th, .price-table td { display: block; width: 100%; }
+            .price-table th { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Baby sitter coco</div>
+            <nav class="nav-menu">
+                <a href="#about">理念・紹介</a>
+                <a href="#servce">サービス</a>
+                <a href="#price">料金</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>福岡のベビーシッター<br>Baby sitter coco</h1>
+            <p>365日24時間対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
+            <a href="https://lin.ee/BAxbob2" class="hero-btn">LINEで予約・相談する</a>
+        </div>
+    </div>
+
+    <section class="trust-points">
+        <div class="container">
+            <h2 class="section-title">安心・安全な保育を提供</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">📛</div>
+                    <div class="trust-title">有資格者が対応</div>
+                    <p>保育士資格・幼稚園教諭免許を保有。保育園・幼稚園での担任経験もあるプロなので安心です。</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-title">保険加入済み</div>
+                    <p>万が一の事故に備え、賠償責任保険に加入しております。安全第一でサポートします。</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🤝</div>
+                    <div class="trust-title">事前面談あり</div>
+                    <p>初回は必ずオンラインまたは対面での面談を行い、お子様の様子やご要望を丁寧に伺います。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="concept">
+        <div class="container">
+            <h2 class="section-title">私の想い</h2>
+            <p>「子どもがいるから働けない・出かけられない・育児がつらい」<br>そんな思いを持つパパ・ママを助けたいと思い開業しました。</p>
+            <p>生まれ育った福岡で、より良い子育て環境を整え、<br>家族以外の頼れる一人として「心の拠り所」を作っていきます。</p>
+            <p>子育てで悩んだ時、辛くなった時、誰かと話したくなった時…<br>支えられるような存在でありたいと思っていますので<br>一人で悩まず、家族だけで抱え込まず、ぜひ私を頼ってください。</p>
+            <p>お子様の成長を一緒に見守るパートナーになります…！</p>
+        </div>
+    </section>
+
+    <section class="profile">
+        <div class="container">
+            <h2 class="section-title">シッター紹介</h2>
+            <div class="profile-content">
+                <div class="profile-img">
+                    <img src="./img/IMG_2422.jpeg" alt="Sano Kotomi">
+                </div>
+                <div class="profile-text">
+                    <h3>Sano Kotomi</h3>
+                    <ul>
+                        <li>📍 福岡県出身</li>
+                        <li>🎓 中村学園大学短期大学部卒業</li>
+                        <li>📛 保育士資格・幼稚園教諭免許・チャイルドコーチング資格</li>
+                        <li>🎹 特技：ピアノ・製作</li>
+                    </ul>
+                    <p style="margin-top:20px;">
+                        現在は個人のベビーシッターだけでなく、親子教室、イベント運営、ママ会・保育交流会の主催など、幅広く活動しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-img-placeholder1"></div>
+                    <div class="service-body">
+                        <div class="service-title">365日24時間対応ベビーシッター</div>
+                        <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、外出サポートまで幅広く対応しております。企業内やサロン・美容室での託児、ウエディングシッターやイベントシッターなど幅広く活躍中！</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img-placeholder2"></div>
+                    <div class="service-body">
+                        <div class="service-title">親子イベント・親子教室</div>
+                        <p>ワークショップ、季節のイベントなどを毎月行っています。教室のレッスンでは「育脳」をテーマにして五感を刺激する遊びを提供。お子様の成長に合わせたカリキュラムを組みます。保育園や幼稚園などでの出張レッスンも受け付けております。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img-placeholder3"></div>
+                    <div class="service-body">
+                        <div class="service-title">ママ会・保育交流会</div>
+                        <p>ママたちがゆっくりお話し出来る交流会や、保育関係者が横の繋がりを作れる交流会を定期的に主催。おしゃれなカフェや飲食店での開催がメインです。少人数なので一人ひとりとしっかりお話が出来ます。</p>
+                    </div>
+                </div>
+                 <div class="service-card">
+                    <div class="service-img-placeholder4"></div>
+                    <div class="service-body">
+                        <div class="service-title">保育関係研修・起業サポート</div>
+                        <p>保育関係者向けのスキルアップ研修やベビーシッターになるための研修・立ち上げサポートをしております。研修は不定期で行っていますので、情報はSNSからの確認をお願いいたします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">基本料金（目安）</h2>
+            <table class="price-table">
+                <tr>
+                    <th>ベビーシッター</th>
+                    <td>1時間 1,800円〜<br><small>※お子様のご年齢・人数・保育内容によって料金異なります。</small></td>
+                </tr>
+                <tr>
+                    <th>オプション</th>
+                    <td>100円〜1000円<br><small>※サポート内容・レッスンなどによって追加の料金ございます。</small></td>
+                </tr>
+                <tr>
+                    <th>交通費</th>
+                    <td>実費（福岡市内からお伺い）<br><small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small></td>
+                </tr>
+                <tr>
+                    <th>キャンセルポリシー</th>
+                    <td>サポート開始予定の48時間前からキャンセル料が発生いたします。</td>
+                </tr>
+            </table>
+            <p style="text-align: center; margin-top: 20px;">
+                ※詳細なお見積もりはLINEにてお問い合わせください。<br>
+                ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
+            </p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Baby sitter coco</h3>
+            <p>無償化対象・365日24時間対応・福岡ベビーシッター</p>
+            <div class="sns-links">
+                <a href="http://www.instagram.com/baby_sitter_coco_" target="_blank">【　Instagram　】</a>
+            </div>
+            <p>お問い合わせ・ご予約は公式LINEより承っております。</p>
+            <p style="margin-top: 30px; font-size: 0.8rem;">&copy; Baby sitter coco All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://lin.ee/BAxbob2" class="fixed-line-btn" target="_blank">
+        <span>💬 LINEで予約・相談</span>
+    </a>
+
+</body>
+</html>
