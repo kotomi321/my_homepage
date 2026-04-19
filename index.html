@@ -201,10 +201,8 @@
         }
 
         /* --- サービス一覧 --- */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+        .price-grid {
+            width: 92%;
         }
         .service-card {
             background: var(--white);
@@ -455,28 +453,30 @@
     <section id="price" style="background: #fff;">
         <div class="container">
             <h2 class="section-title">基本料金（目安）</h2>
-            <table class="price-table">
-                <tr>
-                    <th>ベビーシッター</th>
-                    <td>1時間 1,800円〜<br><small>※お子様のご年齢・人数・保育内容によって料金異なります。</small></td>
-                </tr>
-                <tr>
-                    <th>オプション</th>
-                    <td>100円〜1000円<br><small>※サポート内容・レッスンなどによって追加の料金ございます。</small></td>
-                </tr>
-                <tr>
-                    <th>交通費</th>
-                    <td>実費（福岡市内からお伺い）<br><small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small></td>
-                </tr>
-                <tr>
-                    <th>キャンセルポリシー</th>
-                    <td>サポート開始予定の48時間前からキャンセル料が発生いたします。</td>
-                </tr>
-            </table>
-            <p style="text-align: center; margin-top: 20px;">
-                ※詳細なお見積もりはLINEにてお問い合わせください。<br>
-                ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
-            </p>
+            <div class="price-grid">
+                <table class="price-table">
+                    <tr>
+                        <th>ベビーシッター</th>
+                        <td>1時間 1,800円〜<br><small>※お子様のご年齢・人数・保育内容によって料金異なります。</small></td>
+                    </tr>
+                    <tr>
+                        <th>オプション</th>
+                        <td>100円〜1000円<br><small>※サポート内容・レッスンなどによって追加の料金ございます。</small></td>
+                    </tr>
+                    <tr>
+                        <th>交通費</th>
+                        <td>実費（福岡市内からお伺い）<br><small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small></td>
+                    </tr>
+                    <tr>
+                        <th>キャンセルポリシー</th>
+                        <td>サポート開始予定の48時間前からキャンセル料が発生いたします。</td>
+                    </tr>
+                </table>
+                <p style="text-align: center; margin-top: 20px;">
+                    ※詳細なお見積もりはLINEにてお問い合わせください。<br>
+                    ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
+                </p>
+            </div>
         </div>
     </section>
 
