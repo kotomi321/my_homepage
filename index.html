@@ -203,7 +203,7 @@
         /* --- サービス一覧 --- */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
         .service-card {
@@ -212,7 +212,8 @@
             overflow: hidden;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-            height: 400px;
+            min-height: 400px;
+            max-height: 450px;
         }
         .service-card:hover {
             transform: translateY(-5px);
