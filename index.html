@@ -5,295 +5,463 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby sitter coco | 福岡のベビーシッター・365日24時間対応</title>
     <meta name="description" content="福岡県出身の元保育士ベビーシッター「Baby sitter coco」。365日24時間対応、病児・病後児保育、送迎、親子教室まで。有資格者が大切なお子様を守ります。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* パソコンで見たときは"pc"のclassがついた画像が表示される */
-        .pc { 
-            /* ※ここに実際のメイン画像を背景設定すると良いです url('画像パス') */
-            background-image: url(img/IMG_3843.png);
-         }
-        .sp { 
-            /* ※ここに実際のメイン画像を背景設定すると良いです url('画像パス') */
-            background-image: url(img/IMG_3843_sp.png);
-         }
-        
-        /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
-        @media only screen and (max-width: 750px) {
-            .pc { display: none !important; }
-            .sp { display: block !important; }
-        }
-        /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
-        @media only screen and (min-width: 751px) {
-            .pc { display: block !important; }
-            .sp { display: none !important; }
-        }
         /* --- 基本設定 --- */
         :root {
-            --main-color: #f4a6a6; /* 温かみのあるピンク */
-            --accent-color: #d66d6d; /* 濃いピンク */
-            --text-color: #444444;
-            --bg-color: #faf9f6; /* 優しいオフホワイト */
+            --pink: #e9759c;          /* メインピンク */
+            --pink-deep: #dc1a5b;     /* アクセント（濃いピンク） */
+            --pink-light: #f5b9cd;    /* 淡いピンク（線・装飾） */
+            --pink-bg: #fff2f7;       /* セクション背景 */
+            --marker: #fbd3e0;        /* 見出しのマーカー */
+            --text-color: #454545;
+            --sub-text: #7c7c7c;
             --white: #ffffff;
-            --line-green: #06c755; /* LINEカラー */
+            --line-green: #06c755;    /* LINEカラー */
         }
 
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
             color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.8;
+            background-color: var(--white);
+            line-height: 2;
+            letter-spacing: 0.05em;
             margin: 0;
             padding: 0;
+            font-size: 15px;
         }
-
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; padding: 0; }
+        ul { list-style: none; padding: 0; margin: 0; }
         img { max-width: 100%; height: auto; vertical-align: bottom; }
-        
+        h1, h2, h3, p { margin: 0; }
+
         /* --- レイアウト共通 --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .narrow { max-width: 600px; margin: 0 auto; }
+        section { padding: 80px 0; }
+        .bg-pink { background: var(--pink-bg); }
 
-        section {
-            padding: 60px 0;
-        }
-
-        h2.section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 40px;
-            position: relative;
-        }
-        h2.section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-        }
-
-        /* --- ヘッダー --- */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .nav-menu { display: none; } /* スマホでは簡易化のため非表示 */
-        }
-
-        /* --- ヒーローエリア（トップ画像） --- */
-        .hero {
-            background-color: var(--main-color);
-            
-            text-align: center;
-            padding: 100px 20px;
+        /* セクション見出し（英字 + 日本語 + スマイルライン） */
+        .section-head { text-align: center; margin-bottom: 48px; }
+        .section-head .en {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: 0.04em;
             color: var(--text-color);
         }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: -1px -1px 3px rgba(255,255,255,0.8);
+        .section-head .ja {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            margin-top: 4px;
         }
-        .hero p {
-            margin-bottom: 30px;
-            font-weight: bold;
-            text-shadow: -1px -1px 1px rgba(255,255,255,0.8);
-        }
-        .hero-btn {
-            display: inline-block;
-            background: var(--line-green);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        .section-head .smile {
+            display: block;
+            width: 44px;
+            height: 14px;
+            margin: 6px auto 0;
         }
 
-        /* --- 3つの安心ポイント --- */
-        .trust-points {
+        /* マーカー付き見出し */
+        .marker {
+            background: linear-gradient(transparent 58%, var(--marker) 58%);
+            padding: 0 4px;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 280px;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--white);
+            background: var(--pink-deep);
+            box-shadow: 0 4px 0 #b0124a;
+        }
+        .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 #b0124a; }
+        .btn-line { background: var(--line-green); box-shadow: 0 4px 0 #04963f; }
+        .btn-line:hover { box-shadow: 0 2px 0 #04963f; }
+        .btn .arrow { font-size: 0.8rem; }
+
+        /* --- ヘッダー（メニューボタン） --- */
+        .menu-btn {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 72px;
+            height: 72px;
+            background: var(--white);
+            border: none;
+            border-left: 1px solid var(--pink-light);
+            border-bottom: 1px solid var(--pink-light);
+            border-bottom-left-radius: 12px;
+            z-index: 1001;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: var(--pink-deep);
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+        .menu-btn .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--pink-deep);
+            transition: 0.3s;
+        }
+        .menu-open .menu-btn .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .menu-open .menu-btn .bar:nth-child(2) { opacity: 0; }
+        .menu-open .menu-btn .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .drawer {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 242, 247, 0.97);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s;
+        }
+        .menu-open .drawer { opacity: 1; visibility: visible; }
+        .drawer-inner { text-align: center; }
+        .drawer .drawer-title {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 2rem;
+            color: var(--pink-deep);
+            margin-bottom: 24px;
+        }
+        .drawer li a {
+            display: block;
+            padding: 14px 40px;
+            border-bottom: 1px dashed var(--pink-light);
+            font-weight: 500;
+        }
+        .drawer li a:hover { color: var(--pink-deep); }
+        .drawer li a small {
+            display: block;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            color: var(--pink);
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+        .drawer .btn { margin-top: 32px; }
+
+        /* --- ヒーローエリア --- */
+        .hero {
+            position: relative;
+            padding: 16px 16px 0;
             background: var(--white);
         }
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .hero-visual {
+            position: relative;
+            overflow: hidden;
+            min-height: 460px;
+            background-image: url(img/hero_marble.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 20px;
+        }
+        .hero-copy {
             text-align: center;
         }
-        .trust-item {
-            background: #fff0f0;
-            padding: 30px;
-            border-radius: 10px;
+        .hero-logo {
+            display: inline-block;
+            background: rgba(255,255,255,0.88);
+            padding: 22px 36px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 18px rgba(233,117,156,0.12);
         }
-        .trust-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .hero-logo .logo-img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 14px;
+            margin: 0 auto 10px;
         }
-        .trust-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
+        .hero-logo .small {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--sub-text);
+            line-height: 1.4;
         }
-
-        /* --- コンセプト --- */
-        .concept {
-            background: url(img/bg.PNG);
+        .hero-logo h1 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--pink-deep);
+            letter-spacing: 0.02em;
         }
-
-        /* --- コンセプト --- */
-        .concept p {
+        .hero-badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .badge {
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 4px solid var(--pink-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            max-width: 800px;
+            line-height: 1.35;
+            box-shadow: 0 4px 12px rgba(233,117,156,0.15);
+        }
+        .badge strong {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--pink-light);
+            padding-bottom: 3px;
+            margin-bottom: 4px;
+        }
+        .badge strong.no-line {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+        .badge span { font-size: 0.72rem; }
+        .badge:nth-child(1) { border-color: #f8c9a0; }
+        .badge:nth-child(2) { border-color: var(--pink-light); }
+        .badge:nth-child(3) { border-color: #bfe3c9; }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 20px;
+        }
+
+        /* --- イントロ --- */
+        .intro { text-align: center; }
+        .intro p { margin-bottom: 1.6em; }
+
+        /* --- 白カード（番号付きポイント） --- */
+        .point-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(233,117,156,0.12);
+            padding: 40px 40px 44px;
+            margin: 0 auto 32px;
+            max-width: 600px;
+        }
+        .point-card h3 {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .point-card .point-icon {
+            width: 120px;
+            height: 120px;
             margin: 0 auto 20px;
+            border-radius: 50%;
+            background: var(--pink-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .point-card .point-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: none;
+            stroke: var(--pink);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- コンセプト --- */
+        #about { background: url(img/bg.png) center / cover; }
+        .concept-wrap {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+        .concept-img { flex: 0 0 320px; }
+        .concept-img img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid var(--white);
+            box-shadow: 0 6px 24px rgba(233,117,156,0.15);
+        }
+        .concept-text p { margin-bottom: 1.4em; }
+        .concept-text p:last-child {
+            font-weight: 700;
+            color: var(--pink-deep);
         }
 
         /* --- プロフィール --- */
-        .profile {
+        .profile-card {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            border: 1px solid var(--pink-light);
+            border-radius: 20px;
+            padding: 40px;
             background: var(--white);
         }
-        .profile-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .profile-img {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-        }
+        .profile-img { flex: 0 0 240px; text-align: center; }
         .profile-img img {
-            width: 250px;
-            height: 250px;
+            width: 240px;
+            height: 240px;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--main-color);
+            border: 6px solid var(--pink-bg);
         }
-        .profile-text {
-            flex: 2;
+        .profile-text h3 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--pink-deep);
+            margin-bottom: 12px;
+        }
+        .profile-text li {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--pink-light);
         }
 
         /* --- サービス一覧 --- */
-        .price-grid {
-            width: 92%;
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
         }
         .service-card {
             background: var(--white);
-            border-radius: 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            min-height: 400px;
-            max-height: 450px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(233,117,156,0.15);
         }
-        .service-img-placeholder1 {
-            width: 100%;
-            height: 180px;
-            background: url(img/IMG_7821.png);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
+        .service-card .service-title {
+            text-align: center;
+            font-weight: 700;
+            padding: 14px 16px 10px;
+            line-height: 1.6;
         }
-        .service-img-placeholder2 {
+        .service-card .service-img {
             width: 100%;
-            height: 180px;
-            background: url(img/IMG_2004.jpeg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-        .service-img-placeholder3 {
-            width: 100%;
-            height: 180px;
-            background: url(img/IMG_2006.jpeg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-        .service-img-placeholder4 {
-            width: 100%;
-            height: 180px;
-            background: url(img/IMG_2005.jpeg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: var(--pink-bg);
         }
         .service-body {
-            padding: 20px;
-        }
-        .service-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
+            padding: 18px 22px 24px;
+            font-size: 0.9rem;
         }
 
         /* --- 料金表 --- */
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
+        .price-box {
+            max-width: 680px;
+            margin: 0 auto;
+            border: 1px solid #d9d9d9;
             background: var(--white);
+            border-radius: 4px;
+            text-align: center;
+            padding: 22px 24px;
         }
-        .price-table th, .price-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
+        .price-box .price-label {
+            font-weight: 700;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e5e5e5;
         }
-        .price-table th {
-            background: #fff0f0;
-            color: var(--accent-color);
-            width: 30%;
+        .price-box .price-value {
+            color: var(--pink-deep);
+            font-weight: 700;
+            font-size: 1.15rem;
         }
+        .price-box small {
+            display: block;
+            color: var(--sub-text);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            margin-top: 6px;
+        }
+        .price-plus {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 14px 0;
+            color: var(--text-color);
+        }
+        .price-box.cancel { margin-top: 40px; border-color: var(--pink-light); }
+        .price-note {
+            max-width: 680px;
+            margin: 28px auto 0;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .price-cta { text-align: center; margin-top: 32px; }
 
-        /* --- フッター --- */
+        /* --- お問い合わせ / フッター --- */
+        .contact { text-align: center; }
+        .contact .lead { margin-bottom: 28px; }
+        .contact .btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-insta {
+            background: linear-gradient(45deg, #f9a03f, #e1306c, #833ab4);
+            box-shadow: 0 4px 0 #9b2a7c;
+        }
+        .btn-insta:hover { box-shadow: 0 2px 0 #9b2a7c; }
+        .btn svg { width: 22px; height: 22px; }
+
         footer {
-            background: var(--text-color);
+            background: var(--pink);
             color: var(--white);
             text-align: center;
-            padding: 40px 20px 80px; /* 下部はボタン用に余白 */
+            padding: 48px 20px 110px;
         }
-        .sns-links {
+        footer .f-logo {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+        }
+        footer .f-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px 24px;
+            flex-wrap: wrap;
             margin: 20px 0;
+            font-size: 0.9rem;
         }
-        .sns-links a {
-            color: var(--white);
-            margin: 0 10px;
-            font-size: 1.5rem;
-        }
+        footer .copy { font-size: 0.75rem; margin-top: 20px; opacity: 0.9; }
 
         /* --- 固定LINEボタン --- */
         .fixed-line-btn {
@@ -302,100 +470,171 @@
             right: 20px;
             background: var(--line-green);
             color: white;
-            padding: 15px 25px;
+            padding: 14px 24px;
             border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             z-index: 999;
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: bounce 2s infinite;
+            animation: bounce 2.4s infinite;
         }
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
-        /* スマホ向け調整 */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8rem; }
-            .profile-content { flex-direction: column; text-align: center; }
-            .price-table th, .price-table td { display: block; width: 100%; }
-            .price-table th { border-bottom: none; }
+        /* --- スクロールでふわっと表示 --- */
+        .fade { opacity: 0; transform: translateY(24px); transition: opacity 0.8s, transform 0.8s; }
+        .fade.show { opacity: 1; transform: none; }
+
+        /* --- スマホ向け調整 --- */
+        @media (max-width: 750px) {
+            body { font-size: 14px; }
+            section { padding: 60px 0; }
+            .section-head .en { font-size: 2rem; }
+            .menu-btn { width: 60px; height: 60px; }
+
+            .hero { padding: 0; }
+            .hero-visual { min-height: 360px; padding: 36px 16px; }
+            .hero-logo { padding: 16px 24px; margin-bottom: 18px; }
+            .hero-logo h1 { font-size: 2rem; }
+            .hero-badges { justify-content: center; gap: 8px; }
+            .badge { width: 100px; height: 100px; border-width: 3px; }
+            .badge strong { font-size: 0.9rem; }
+            .badge span { font-size: 0.65rem; }
+
+            .point-card { padding: 32px 22px 36px; border-radius: 16px; }
+            .point-card h3 { font-size: 1.1rem; }
+
+            .concept-wrap { flex-direction: column; gap: 32px; }
+            .concept-img { flex: none; }
+            .concept-img img { width: 240px; height: 240px; }
+            .concept-text { text-align: center; }
+
+            .profile-card { flex-direction: column; padding: 32px 22px; gap: 24px; }
+            .profile-img { flex: none; }
+            .profile-img img { width: 200px; height: 200px; }
+            .profile-text h3 { text-align: center; }
+
+            .service-grid { grid-template-columns: 1fr; }
+            .btn { min-width: 0; width: 100%; max-width: 340px; }
+            .fixed-line-btn { padding: 12px 20px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container header-inner">
-            <div class="logo">Baby sitter coco</div>
-            <nav class="nav-menu">
-                <a href="#about">理念・紹介</a>
-                <a href="#service">サービス</a>
-                <a href="#price">料金</a>
-                <a href="#contact">お問い合わせ</a>
-            </nav>
+    <!-- メニュー -->
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        MENU
+    </button>
+    <nav class="drawer" id="drawer">
+        <div class="drawer-inner">
+            <p class="drawer-title">Menu</p>
+            <ul>
+                <li><a href="#about"><small>Concept</small>理念・紹介</a></li>
+                <li><a href="#service"><small>Service</small>サービス</a></li>
+                <li><a href="#price"><small>Price</small>料金</a></li>
+                <li><a href="#contact"><small>Contact</small>お問い合わせ</a></li>
+            </ul>
+            <a href="https://lin.ee/BAxbob2" class="btn btn-line" target="_blank">LINEで予約・相談する</a>
+        </div>
+    </nav>
+
+    <!-- ヒーロー -->
+    <header class="hero">
+        <div class="hero-visual">
+            <div class="hero-copy">
+                <div class="hero-logo">
+                    <img class="logo-img" src="img/IMG_logo.png" alt="Baby sitter coco ロゴ">
+                    <span class="small">福岡</span>
+                    <h1>Baby sitter coco</h1>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge"><strong class="no-line">365日<br>24時間対応</strong></div>
+                    <div class="badge"><strong>有資格者</strong><span>保育士資格<br>幼稚園教諭免許</span></div>
+                    <div class="badge"><strong class="no-line">送迎サポート</strong></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-cta">
+            <a href="https://lin.ee/BAxbob2" class="btn btn-line" target="_blank">LINEで予約・相談する <span class="arrow">▶</span></a>
         </div>
     </header>
 
-    <div class="pc hero">
+    <!-- イントロ + 安心ポイント -->
+    <section class="bg-pink">
         <div class="container">
-            <h1>福岡のベビーシッター<br>Baby sitter coco</h1>
-            <p>365日24時間対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
-            <a href="https://lin.ee/BAxbob2" class="hero-btn">LINEで予約・相談する</a>
-        </div>
-    </div>
+            <div class="section-head fade">
+                <h2 class="en">Baby sitter coco</h2>
+                <span class="ja">福岡のベビーシッター</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="intro fade">
+                <p>365日24時間対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
+            </div>
 
-    <div class="sp hero">
-        <div class="container">
-            <h1>福岡のベビーシッター<br>Baby sitter coco</h1>
-            <p>365日24時間対応・病児保育・送迎OK<br>保育士資格・幼稚園教諭免許を持つプロが<br>大切なお子様を安全にお預かりします。</p>
-            <a href="https://lin.ee/BAxbob2" class="hero-btn">LINEで予約・相談する</a>
-        </div>
-    </div>
+            <div class="section-head fade" style="margin-top: 24px; margin-bottom: 36px;">
+                <h2 class="en">Safety</h2>
+                <span class="ja">安心・安全な保育を提供</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
 
-    <section class="trust-points">
+            <div class="point-card fade">
+                <h3><span class="marker">1. 有資格者が対応</span></h3>
+                <div class="point-icon"><svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="26" rx="3"/><path d="M14 16h20M14 22h14"/><circle cx="32" cy="34" r="6"/><path d="M29 39l-1 6 4-2 4 2-1-6"/></svg></div>
+                <p>保育士資格・幼稚園教諭免許を保有。保育園・幼稚園での担任経験もあるプロなので安心です。</p>
+            </div>
+            <div class="point-card fade">
+                <h3><span class="marker">2. 保険加入済み</span></h3>
+                <div class="point-icon"><svg viewBox="0 0 48 48"><path d="M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11z"/><path d="M24 31s-7-4.5-7-9a3.8 3.8 0 0 1 7-2 3.8 3.8 0 0 1 7 2c0 4.5-7 9-7 9z"/></svg></div>
+                <p>万が一の事故に備え、賠償責任保険に加入しております。安全第一でサポートします。</p>
+            </div>
+            <div class="point-card fade">
+                <h3><span class="marker">3. 事前面談あり</span></h3>
+                <div class="point-icon"><svg viewBox="0 0 48 48"><circle cx="15" cy="22" r="5"/><path d="M6 40c0-6 4-10 9-10s9 4 9 10"/><circle cx="33" cy="22" r="5"/><path d="M24 40c0-6 4-10 9-10s9 4 9 10"/><path d="M20 6h16a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-9l-4 3v-3h-3a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z"/></svg></div>
+                <p>初回は必ずオンラインまたは対面での面談を行い、お子様の様子やご要望を丁寧に伺います。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 私の想い -->
+    <section id="about">
         <div class="container">
-            <h2 class="section-title">安心・安全な保育を提供</h2>
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">📛</div>
-                    <div class="trust-title">有資格者が対応</div>
-                    <p>保育士資格・幼稚園教諭免許を保有。保育園・幼稚園での担任経験もあるプロなので安心です。</p>
+            <div class="section-head fade">
+                <h2 class="en">Concept</h2>
+                <span class="ja">私の想い</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="concept-wrap fade">
+                <div class="concept-img">
+                    <img src="img/IMG_1823.jpeg" alt="私の想い">
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">🛡️</div>
-                    <div class="trust-title">保険加入済み</div>
-                    <p>万が一の事故に備え、賠償責任保険に加入しております。安全第一でサポートします。</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">🤝</div>
-                    <div class="trust-title">事前面談あり</div>
-                    <p>初回は必ずオンラインまたは対面での面談を行い、お子様の様子やご要望を丁寧に伺います。</p>
+                <div class="concept-text">
+                    <p>「子どもがいるから働けない・出かけられない・育児がつらい」<br>そんな思いを持つパパ・ママを助けたいと思い開業しました。</p>
+                    <p>生まれ育った福岡で、より良い子育て環境を整え、<br>家族以外の頼れる一人として「心の拠り所」を作っていきます。</p>
+                    <p>子育てで悩んだ時、辛くなった時、誰かと話したくなった時…<br>支えられるような存在でありたいと思っていますので<br>一人で悩まず、家族だけで抱え込まず、ぜひ私を頼ってください。</p>
+                    <p>お子様の成長を一緒に見守るパートナーになります…！</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="concept">
+    <!-- シッター紹介 -->
+    <section class="bg-pink">
         <div class="container">
-            <h2 class="section-title">私の想い</h2>
-            <p>「子どもがいるから働けない・出かけられない・育児がつらい」<br>そんな思いを持つパパ・ママを助けたいと思い開業しました。</p>
-            <p>生まれ育った福岡で、より良い子育て環境を整え、<br>家族以外の頼れる一人として「心の拠り所」を作っていきます。</p>
-            <p>子育てで悩んだ時、辛くなった時、誰かと話したくなった時…<br>支えられるような存在でありたいと思っていますので<br>一人で悩まず、家族だけで抱え込まず、ぜひ私を頼ってください。</p>
-            <p>お子様の成長を一緒に見守るパートナーになります…！</p>
-        </div>
-    </section>
-
-    <section class="profile">
-        <div class="container">
-            <h2 class="section-title">シッター紹介</h2>
-            <div class="profile-content">
+            <div class="section-head fade">
+                <h2 class="en">Profile</h2>
+                <span class="ja">シッター紹介</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="profile-card fade">
                 <div class="profile-img">
-                    <img src="./img/IMG_2422.jpeg" alt="Sano Kotomi">
+                    <img src="img/IMG_2422.jpeg" alt="Sano Kotomi">
                 </div>
                 <div class="profile-text">
                     <h3>Sano Kotomi</h3>
@@ -413,35 +652,40 @@
         </div>
     </section>
 
+    <!-- サービス内容 -->
     <section id="service">
         <div class="container">
-            <h2 class="section-title">サービス内容</h2>
+            <div class="section-head fade">
+                <h2 class="en">Service</h2>
+                <span class="ja">サービス内容</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
             <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-img-placeholder1"></div>
+                <div class="service-card fade">
+                    <div class="service-title">365日24時間対応ベビーシッター</div>
+                    <img class="service-img" src="img/IMG_7821.png" alt="365日24時間対応ベビーシッター">
                     <div class="service-body">
-                        <div class="service-title">365日24時間対応ベビーシッター</div>
                         <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、外出サポートまで幅広く対応しております。企業内やサロン・美容室での託児、ウエディングシッターやイベントシッターなど幅広く活躍中！</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-img-placeholder2"></div>
+                <div class="service-card fade">
+                    <div class="service-title">親子イベント</div>
+                    <img class="service-img" src="img/IMG_2004.jpeg" alt="親子イベント">
                     <div class="service-body">
-                        <div class="service-title">親子イベント</div>
                         <p>季節のイベント、出張レッスン、ワークショップなど不定期で開催。体験型を基本とし、親子時間の充実やお子様の「出来た！」を増やすことを目標にしています。保育園や幼稚園などでの出張レッスンも受け付けております。</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-img-placeholder3"></div>
+                <div class="service-card fade">
+                    <div class="service-title">ママ会・保育交流会</div>
+                    <img class="service-img" src="img/IMG_2006.jpeg" alt="ママ会・保育交流会">
                     <div class="service-body">
-                        <div class="service-title">ママ会・保育交流会</div>
                         <p>ママたちがゆっくりお話し出来る交流会や、保育関係者が横の繋がりを作れる交流会を定期的に主催。おしゃれなカフェや飲食店での開催がメインです。少人数なので一人ひとりとしっかりお話が出来ます。</p>
                     </div>
                 </div>
-                 <div class="service-card">
-                    <div class="service-img-placeholder4"></div>
+                <div class="service-card fade">
+                    <div class="service-title">訪問支援サポート</div>
+                    <img class="service-img" src="img/IMG_2005.jpeg" alt="訪問支援サポート">
                     <div class="service-body">
-                        <div class="service-title">訪問支援サポート</div>
                         <p>障害を持ったお子様、診断はついてないけど成長に不安があるお子様などを対象に、サポートを行っています。障害があるから…と諦めていた事も、シッター利用を通して実現に近づきます。気になる方は一度お問い合わせください！</p>
                     </div>
                 </div>
@@ -449,45 +693,80 @@
         </div>
     </section>
 
-    <section id="price" style="background: #fff;">
+    <!-- 基本料金 -->
+    <section id="price" class="bg-pink">
         <div class="container">
-            <h2 class="section-title">基本料金（目安）</h2>
-            <div class="price-grid">
-                <table class="price-table">
-                    <tr>
-                        <th>ベビーシッター</th>
-                        <td>1時間 2,000円〜<br><small>※お子様のご年齢・人数・保育内容によって料金異なります。</small></td>
-                    </tr>
-                    <tr>
-                        <th>オプション</th>
-                        <td>500円〜1100円<br><small>※サポート内容・レッスンなどによって追加の料金ございます。</small></td>
-                    </tr>
-                    <tr>
-                        <th>交通費</th>
-                        <td>実費（福岡市内からお伺い）<br><small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small></td>
-                    </tr>
-                    <tr>
-                        <th>キャンセルポリシー</th>
-                        <td>サポート開始予定の1週間前からキャンセル料が発生いたします。</td>
-                    </tr>
-                </table>
-                <p style="text-align: center; margin-top: 20px;">
+            <div class="section-head fade">
+                <h2 class="en">Price</h2>
+                <span class="ja">基本料金（目安）</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="fade">
+                <div class="price-box">
+                    <p class="price-label">ベビーシッター</p>
+                    <p class="price-value">1時間 2,300円〜</p>
+                    <small>※お子様のご年齢・人数・保育内容によって料金異なります。</small>
+                </div>
+                <div class="price-plus">+</div>
+                <div class="price-box">
+                    <p class="price-label">オプション</p>
+                    <p class="price-value">500円〜1100円</p>
+                    <small>※サポート内容・レッスンなどによって追加の料金ございます。</small>
+                </div>
+                <div class="price-plus">+</div>
+                <div class="price-box">
+                    <p class="price-label">交通費</p>
+                    <p class="price-value">実費（福岡市内からお伺い）</p>
+                    <small>※基本的には公共交通機関で伺いますが、場合によってお車を使用する事もございます。</small>
+                </div>
+                <div class="price-box cancel">
+                    <p class="price-label">キャンセルポリシー</p>
+                    <p>サポート開始予定の1週間前からキャンセル料が発生いたします。</p>
+                </div>
+                <p class="price-note">
                     ※詳細なお見積もりはLINEにてお問い合わせください。<br>
                     ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
                 </p>
+                <div class="price-cta">
+                    <a href="https://lin.ee/BAxbob2" class="btn" target="_blank">LINEで見積もりを相談する <span class="arrow">▶</span></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <!-- お問い合わせ -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h3>Baby sitter coco</h3>
-            <p>無償化対象・365日24時間対応・福岡ベビーシッター</p>
-            <div class="sns-links">
-                <a href="http://www.instagram.com/baby_sitter_coco_" target="_blank"><img src="./img/2227.png" style="vertical-align: bottom;">Instagram</a>
+            <div class="section-head fade">
+                <h2 class="en">Contact</h2>
+                <span class="ja">お問い合わせ</span>
+                <svg class="smile" viewBox="0 0 44 14"><path d="M2 2 Q22 22 42 2" fill="none" stroke="#e9759c" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
-            <p>お問い合わせ・ご予約は公式LINEより承っております。</p>
-            <p style="margin-top: 30px; font-size: 0.8rem;">&copy; Baby sitter coco All Rights Reserved.</p>
+            <div class="fade">
+                <p class="lead">無償化対象・365日24時間対応・福岡ベビーシッター<br>お問い合わせ・ご予約は公式LINEより承っております。</p>
+                <div class="btns">
+                    <a href="https://lin.ee/BAxbob2" class="btn btn-line" target="_blank">💬 LINEで予約・相談する</a>
+                    <a href="http://www.instagram.com/baby_sitter_coco_" class="btn btn-insta" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <img src="img/IMG_logo.png" alt="Baby sitter coco ロゴ" style="width:88px;height:88px;border-radius:12px;margin-bottom:12px;">
+            <p class="f-logo">Baby sitter coco</p>
+            <p>無償化対象・365日24時間対応・福岡ベビーシッター</p>
+            <nav class="f-nav">
+                <a href="#about">理念・紹介</a>
+                <a href="#service">サービス</a>
+                <a href="#price">料金</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+            <p class="copy">&copy; Baby sitter coco All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -495,5 +774,17 @@
         <span>💬 LINEで予約・相談</span>
     </a>
 
+    <script>
+        // メニュー開閉
+        const body = document.body;
+        document.getElementById('menuBtn').addEventListener('click', () => body.classList.toggle('menu-open'));
+        document.querySelectorAll('#drawer a').forEach(a => a.addEventListener('click', () => body.classList.remove('menu-open')));
+
+        // スクロールでふわっと表示
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade').forEach(el => io.observe(el));
+    </script>
 </body>
 </html>
