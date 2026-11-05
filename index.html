@@ -383,11 +383,11 @@
             border-bottom: 1px dashed var(--pink-light);
         }
 
-        /* --- サービス一覧 --- */
+        /* --- サービス一覧（PC版：横3列） --- */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
         .service-card {
             background: var(--white);
@@ -396,18 +396,18 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 6px 20px rgba(210, 110, 115, 0.08);
+            box-shadow: 0 4px 18px rgba(210, 110, 115, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 24px rgba(210, 110, 115, 0.16);
+            box-shadow: 0 8px 22px rgba(210, 110, 115, 0.16);
         }
         .service-card .service-title {
             text-align: center;
             font-weight: 700;
-            padding: 16px 16px 12px;
-            line-height: 1.6;
+            padding: 16px 14px 14px;
+            line-height: 1.45;
             color: var(--pink-deep);
             background: rgba(253, 241, 236, 0.65);
             border-bottom: 1px solid var(--pink-light);
@@ -415,43 +415,27 @@
         }
         .service-motif {
             width: 100%;
-            height: 170px;
-            background: linear-gradient(135deg, #fffaf6 0%, #fdf0eb 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            aspect-ratio: 4 / 3;
+            background: var(--pink-bg);
+            overflow: hidden;
             position: relative;
             border-bottom: 1px dashed var(--pink-light);
         }
-        .service-motif-circle {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 2px solid var(--pink-light);
-            box-shadow: 0 4px 16px rgba(210, 110, 115, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: transform 0.35s ease;
+        .service-motif img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
         }
-        .service-card:hover .service-motif-circle {
-            transform: scale(1.08);
-        }
-        .service-motif-circle svg {
-            width: 52px;
-            height: 52px;
-            fill: none;
-            stroke: var(--pink-deep);
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .service-card:hover .service-motif img {
+            transform: scale(1.05);
         }
         .service-body {
-            padding: 20px 24px 26px;
-            font-size: 0.92rem;
-            line-height: 1.9;
+            padding: 20px 22px 26px;
+            font-size: 0.88rem;
+            line-height: 1.85;
+            flex: 1;
         }
 
         /* --- 企業理念（Corporate Philosophy） --- */
@@ -683,7 +667,7 @@
             background: rgba(255, 255, 255, 0.25);
             color: var(--white);
         }
-        /* --- サービス内容：対応可能な保育・サポート内容 --- */
+        /* --- サービス内容：対応可能な保育・サポート内容（全体で1つの枠） --- */
         .service-support-wrapper {
             margin-top: 52px;
             background: var(--white);
@@ -694,7 +678,9 @@
         }
         .service-support-head {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--pink-light);
         }
         .service-support-badge {
             display: inline-block;
@@ -723,27 +709,21 @@
         .service-support-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            gap: 18px 24px;
         }
         .support-card {
-            background: var(--pink-bg);
-            border: 1px solid rgba(244, 199, 195, 0.7);
-            border-radius: 14px;
-            padding: 14px 16px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed rgba(244, 199, 195, 0.55);
+            border-radius: 0;
+            padding: 10px 4px 12px;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.25s ease;
-        }
-        .support-card:hover {
-            background: var(--white);
-            border-color: var(--pink);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(210, 110, 115, 0.15);
+            align-items: flex-start;
+            gap: 10px;
         }
         .support-icon {
-            font-size: 1.55rem;
-            line-height: 1;
+            font-size: 1.4rem;
+            line-height: 1.2;
             flex-shrink: 0;
         }
         .support-info {
@@ -758,35 +738,32 @@
             line-height: 1.4;
         }
         .support-desc {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             color: var(--sub-text);
             margin: 3px 0 0;
             line-height: 1.4;
         }
-        @media (max-width: 992px) {
-            .service-support-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .service-support-wrapper {
-                padding: 24px 16px 28px;
-                margin-top: 36px;
-                border-radius: 18px;
-            }
-            .service-support-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .service-support-title {
-                font-size: 1.18rem;
-            }
-        }
 
-        .gallery-grid {
+        /* --- フォトギャラリー（PC版：3列グリッド / 携帯版：1枚ずつのスライド式） --- */
+        .gallery-slider-wrapper {
+            position: relative;
+        }
+        .gallery-slider-window {
+            width: 100%;
+        }
+        .gallery-slider-track {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+            transform: none;
+        }
+        .gallery-slide {
+            display: flex;
+        }
+        #galleryPrev,
+        #galleryNext,
+        #galleryDots {
+            display: none;
         }
         .gallery-card {
             background: var(--white);
@@ -798,11 +775,8 @@
             flex-direction: column;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: galleryFadeIn 0.4s ease both;
-        }
-        @keyframes galleryFadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+            width: 100%;
+            height: 100%;
         }
         .gallery-card:hover {
             transform: translateY(-4px);
@@ -820,6 +794,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.45s ease;
+            display: block;
         }
         .gallery-card:hover .gallery-img-wrap img {
             transform: scale(1.05);
@@ -1007,6 +982,7 @@
         .howto-visual {
             position: relative;
             flex: 0 0 110px;
+            width: 110px;
             height: 110px;
             border-radius: 50%;
             background: var(--pink-bg);
@@ -1254,120 +1230,110 @@
             .profile-img img { width: 200px; height: 200px; }
             .profile-text h3 { text-align: center; }
 
-            .service-grid { grid-template-columns: 1fr; }
-            .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
-            /* --- サービス内容：対応可能な保育・サポート内容 --- */
-        .service-support-wrapper {
-            margin-top: 52px;
-            background: var(--white);
-            border-radius: 24px;
-            border: 2px solid var(--pink-light);
-            box-shadow: 0 8px 24px rgba(210, 110, 115, 0.08);
-            padding: 38px 36px 42px;
-        }
-        .service-support-head {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-        .service-support-badge {
-            display: inline-block;
-            background: var(--pink-bg);
-            color: var(--pink-deep);
-            border: 1px solid var(--pink-light);
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 4px 18px;
-            margin-bottom: 10px;
-            letter-spacing: 0.05em;
-        }
-        .service-support-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--pink-deep);
-            margin-bottom: 8px;
-        }
-        .service-support-lead {
-            font-size: 0.92rem;
-            color: var(--sub-text);
-            margin: 0;
-            line-height: 1.8;
-        }
-        .service-support-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-        .support-card {
-            background: var(--pink-bg);
-            border: 1px solid rgba(244, 199, 195, 0.7);
-            border-radius: 14px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.25s ease;
-        }
-        .support-card:hover {
-            background: var(--white);
-            border-color: var(--pink);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(210, 110, 115, 0.15);
-        }
-        .support-icon {
-            font-size: 1.55rem;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-        .support-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .support-name {
-            font-size: 0.94rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin: 0;
-            line-height: 1.4;
-        }
-        .support-desc {
-            font-size: 0.78rem;
-            color: var(--sub-text);
-            margin: 3px 0 0;
-            line-height: 1.4;
-        }
-        @media (max-width: 992px) {
-            .service-support-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
-        }
-        @media (max-width: 768px) {
+            .service-card .service-title {
+                font-size: 1.05rem;
+                padding: 14px 16px 12px;
+            }
+            .service-motif {
+                aspect-ratio: 16 / 10;
+            }
+            .service-body {
+                padding: 18px 20px 24px;
+                font-size: 0.88rem;
+                line-height: 1.85;
+            }
+            .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
+
+            /* サービス内容：対応可能な保育・サポート内容（携帯版：横2列） */
             .service-support-wrapper {
-                padding: 24px 16px 28px;
+                padding: 24px 14px 28px;
                 margin-top: 36px;
                 border-radius: 18px;
             }
-            .service-support-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
+            .service-support-head {
+                margin-bottom: 16px;
+                padding-bottom: 14px;
             }
             .service-support-title {
-                font-size: 1.18rem;
+                font-size: 1.15rem;
             }
-        }
+            .service-support-lead {
+                font-size: 0.82rem;
+            }
+            .service-support-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px 10px;
+            }
+            .support-card {
+                padding: 8px 2px 10px;
+                gap: 5px;
+            }
+            .support-icon {
+                font-size: 1.05rem;
+            }
+            .support-name {
+                font-size: 0.72rem;
+                line-height: 1.35;
+                letter-spacing: -0.02em;
+            }
+            .support-desc {
+                font-size: 0.65rem;
+                line-height: 1.35;
+                margin-top: 2px;
+            }
 
-        .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            /* フォトギャラリー（携帯版：1枚ずつのスライド表示） */
             .gallery-tab { padding: 10px 20px; font-size: 0.9rem; }
-            .gallery-caption-wrap { padding: 10px 12px 12px; }
-            .gallery-caption { font-size: 0.78rem; line-height: 1.65; }
-            .gallery-tag { font-size: 0.68rem; padding: 2px 8px; top: 8px; left: 8px; }
+            .gallery-slider-wrapper {
+                max-width: 480px;
+                margin: 0 auto;
+                padding: 0 38px;
+            }
+            .gallery-slider-window {
+                overflow: hidden;
+                border-radius: 18px;
+            }
+            .gallery-slider-track {
+                display: flex;
+                gap: 0;
+                transition: transform 0.45s ease-in-out;
+                will-change: transform;
+                transform: var(--gallery-transform, translateX(0%));
+            }
+            .gallery-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 6px;
+            }
+            #galleryPrev,
+            #galleryNext {
+                display: flex;
+                width: 34px;
+                height: 34px;
+                font-size: 1.2rem;
+            }
+            #galleryDots {
+                display: flex;
+            }
+            .gallery-caption-wrap { padding: 14px 16px 16px; }
+            .gallery-caption { font-size: 0.88rem; line-height: 1.7; }
+            .gallery-tag { font-size: 0.75rem; padding: 3px 11px; top: 10px; left: 10px; }
+
+            /* 口コミスライダー（携帯版） */
             .slider-wrapper { padding: 0 6px; }
             .review-card { padding: 32px 20px 36px; min-height: 300px; }
             .review-title { font-size: 1.1rem; }
             .review-text { font-size: 0.92rem; line-height: 1.85; }
-            .slider-btn { display: none; } /* スマホではスワイプ＋ドットで操作 */
+            #sliderPrev, #sliderNext { display: none; }
 
+            /* ご利用ガイド（携帯版：アイコンをPCと同じ丸型に維持） */
             .howto-step { flex-direction: column; text-align: center; padding: 24px 20px; gap: 16px; }
+            .howto-visual { flex: 0 0 100px; width: 100px; height: 100px; margin: 0 auto; }
             .howto-body p { text-align: left; }
 
             .faq-list { padding: 6px 18px; border-radius: 18px; }
@@ -1533,9 +1499,6 @@
                         <li>📛 保育士資格・幼稚園教諭免許・チャイルドコーチング資格</li>
                         <li>🎹 特技：ピアノ・製作</li>
                     </ul>
-                    <p style="margin-top:20px;">
-                        現在は個人のベビーシッターだけでなく、親子教室、イベント運営、ママ会・保育交流会の主催など、幅広く活動しています。
-                    </p>
                 </div>
             </div>
         </div>
@@ -1551,20 +1514,9 @@
             </div>
             <div class="service-grid">
                 <div class="service-card fade">
-                    <div class="service-title">365日24時間対応ベビーシッター</div>
+                    <div class="service-title">ベビーシッター</div>
                     <div class="service-motif">
-                        <div class="service-motif-circle">
-                            <svg viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M13 22 A9 9 0 0 1 22 13 v9 Z" fill="#fdf0eb" stroke="var(--pink-deep)"/>
-                                <path d="M13 22 H33 c0 5.5 -4.5 10 -10 10 H17 c-2.2 0 -4 -1.8 -4 -4 Z"/>
-                                <circle cx="17" cy="36" r="3.5"/>
-                                <circle cx="29" cy="36" r="3.5"/>
-                                <path d="M17 32.5 v3.5 M29 32.5 v3.5"/>
-                                <path d="M31 21 l6 -7 h4"/>
-                                <path d="M37 9 a4 4 0 0 0 4-4 4.5 4.5 0 1 1-4 4z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <path d="M12 9 v4 M10 11 h4" stroke-width="1.5"/>
-                            </svg>
-                        </div>
+                        <img src="img/IMG_1505.jpg" alt="ベビーシッター" loading="lazy" style="object-position: center 50%;">
                     </div>
                     <div class="service-body">
                         <p>ご自宅での保育はもちろん、習い事の送迎、病児・病後児保育、外出サポートまで幅広く対応しております。企業内やサロン・美容室での託児、ウエディングシッターやイベントシッターなど幅広く活躍中！</p>
@@ -1573,20 +1525,7 @@
                 <div class="service-card fade">
                     <div class="service-title">親子イベント</div>
                     <div class="service-motif">
-                        <div class="service-motif-circle">
-                            <svg viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M8 12 Q24 17 40 12"/>
-                                <polygon points="12,13.5 18,15 15,21" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <polygon points="21,15.5 27,15.5 24,22" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <polygon points="30,15 36,13.5 33,21" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <circle cx="18" cy="25" r="3"/>
-                                <path d="M13 38 v-6 a5 5 0 0 1 10 0 v6"/>
-                                <circle cx="31" cy="28.5" r="2.5"/>
-                                <path d="M27 38 v-4.5 a4 4 0 0 1 8 0 v4.5"/>
-                                <path d="M20.5 32 l6.5 2"/>
-                                <path d="M24 22 c0 0-2.2-2-2.2-3 a1.3 1.3 0 0 1 2.2-.8 a1.3 1.3 0 0 1 2.2.8 c0 1-2.2 3-2.2 3 z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                            </svg>
-                        </div>
+                        <img src="img/IMG_1261.jpg" alt="親子イベント" loading="lazy" style="object-position: center 50%;">
                     </div>
                     <div class="service-body">
                         <p>季節のイベント、出張レッスン、ワークショップなど不定期で開催。体験型を基本とし、親子時間の充実やお子様の「出来た！」を増やすことを目標にしています。保育園や幼稚園などでの出張レッスンも受け付けております。</p>
@@ -1595,39 +1534,10 @@
                 <div class="service-card fade">
                     <div class="service-title">ママ会・保育交流会</div>
                     <div class="service-motif">
-                        <div class="service-motif-circle">
-                            <svg viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M11 23 h11 v6 a5 5 0 0 1-11 0 z" fill="#fdf0eb" stroke="var(--pink-deep)"/>
-                                <path d="M11 25 H8 a2 2 0 0 0-2 2 v1.5 a2 2 0 0 0 2 2 h3"/>
-                                <path d="M26 23 h11 v6 a5 5 0 0 1-11 0 z" fill="#fdf0eb" stroke="var(--pink-deep)"/>
-                                <path d="M37 25 h3 a2 2 0 0 1 2 2 v1.5 a2 2 0 0 1-2 2 h-3"/>
-                                <path d="M8 36 h32"/>
-                                <path d="M16 19 Q15 15 17 12"/>
-                                <path d="M32 19 Q33 15 31 12"/>
-                                <path d="M24 16 c0 0-2.5-2.2-2.5-3.3 a1.5 1.5 0 0 1 2.5-1 a1.5 1.5 0 0 1 2.5 1 c0 1.1-2.5 3.3-2.5 3.3 z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                            </svg>
-                        </div>
+                        <img src="img/IMG_1639.jpg" alt="ママ会・保育交流会" loading="lazy" style="object-position: center 45%;">
                     </div>
                     <div class="service-body">
                         <p>ママたちがゆっくりお話し出来る交流会や、保育関係者が横の繋がりを作れる交流会を定期的に主催。おしゃれなカフェや飲食店での開催がメインです。少人数なので一人ひとりとしっかりお話が出来ます。</p>
-                    </div>
-                </div>
-                <div class="service-card fade">
-                    <div class="service-title">訪問支援サポート</div>
-                    <div class="service-motif">
-                        <div class="service-motif-circle">
-                            <svg viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M10 33 c3.5 3.5 8 5 14 5 s10.5-1.5 14-5"/>
-                                <path d="M10 33 c2.5-2.5 6-4 9-4 M38 33 c-2.5-2.5-6-4-9-4"/>
-                                <path d="M24 29 V18"/>
-                                <path d="M24 23 c-3.5 0-6.5-2.5-6.5-6 3.5 0 6.5 2.5 6.5 6 z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <path d="M24 20 c3.5 0 6.5-2.5 6.5-6-3.5 0-6.5 2.5-6.5 6 z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                                <path d="M24 14 c0 0-2.5-2-2.5-3.2 a1.5 1.5 0 0 1 2.5-1 a1.5 1.5 0 0 1 2.5 1 c0 1.2-2.5 3.2-2.5 3.2 z" fill="#fde0d9" stroke="var(--pink-deep)"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <p>障害を持ったお子様、診断はついてないけど成長に不安があるお子様などを対象に、サポートを行っています。障害があるから…と諦めていた事も、シッター利用を通して実現に近づきます。気になる方は一度お問い合わせください！</p>
                     </div>
                 </div>
             </div>
@@ -1692,21 +1602,9 @@
                         </div>
                     </div>
                     <div class="support-card">
-                        <span class="support-icon">🌡️</span>
-                        <div class="support-info">
-                            <h4 class="support-name">病児・病後児保育</h4>
-                        </div>
-                    </div>
-                    <div class="support-card">
                         <span class="support-icon">🏢</span>
                         <div class="support-info">
                             <h4 class="support-name">企業内託児</h4>
-                        </div>
-                    </div>
-                    <div class="support-card">
-                        <span class="support-icon">🏃</span>
-                        <div class="support-info">
-                            <h4 class="support-name">運動遊び</h4>
                         </div>
                     </div>
                     <div class="support-card">
@@ -1772,8 +1670,15 @@
                 </button>
             </div>
 
-            <!-- 写真一覧グリッド（下のスクリプトの GALLERY_ITEMS から自動生成されます） -->
-            <div class="gallery-grid fade" id="galleryGrid"></div>
+            <!-- 写真スライダー（口コミと同じスライド式・2枚ずつ表示） -->
+            <div class="gallery-slider-wrapper fade">
+                <button class="slider-btn prev" id="galleryPrev" aria-label="前の写真へ">‹</button>
+                <div class="gallery-slider-window" id="galleryWindow">
+                    <div class="gallery-slider-track" id="galleryTrack"></div>
+                </div>
+                <button class="slider-btn next" id="galleryNext" aria-label="次の写真へ">›</button>
+                <div class="slider-dots" id="galleryDots"></div>
+            </div>
         </div>
     </section>
 
@@ -1882,8 +1787,8 @@
                     <p>サポート開始予定の1週間前からキャンセル料が発生いたします。</p>
                 </div>
                 <p class="price-note">
-                    ※詳細なお見積もりはLINEにてお問い合わせください。<br>
-                    ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。
+                    ※詳しい料金表やキャンセルポリシーはLINEからご覧いただけます。<br>
+                    お見積もりはLINEにてお問い合わせください。
                 </p>
                 <div class="price-cta">
                     <a href="https://lin.ee/BAxbob2" class="btn" target="_blank">LINEで見積もりを相談する <span class="arrow">▶</span></a>
@@ -2004,8 +1909,8 @@
             </div>
             <div class="faq-list fade">
                 <!-- Q1 -->
-                <div class="faq-item open">
-                    <button class="faq-q" type="button" aria-expanded="true">
+                <div class="faq-item">
+                    <button class="faq-q" type="button" aria-expanded="false">
                         <span class="faq-badge-q">Q</span>
                         <span class="faq-q-text">事前にシッターに会うことはできますか？人見知りでも大丈夫でしょうか？</span>
                         <span class="faq-icon">▼</span>
@@ -2249,57 +2154,58 @@
                 category: 'event',
                 src: 'img/gallery/IMG_3185.jpg',
                 pos: 'center 52%',
-                tag: '4月　イースターパーティー',
+                tag: '4月イースターパーティー',
                 caption: 'パステルカラーのバルーンフォトブースで撮影🐰 可愛いウサギさんに変身して！'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_6079.jpg',
                 pos: 'center 50%',
-                tag: '5月　えのぐあそび',
+                tag: '5月えのぐあそび',
                 caption: '大きな模造紙いっぱいに手足を使ってダイナミックにお絵かき！思いっきり表現する楽しさを味わいます。'
             },
             {
                 category: 'event',
-                src: 'img/gallery/IMG_7675.jpg',
-                tag: '7月　ワークショップ',
-                caption: '大人も子どもも楽しめるジェルポット作り✨ 好きなパーツや色を選んで、ずっと眺めていたくなる宝物に。'
+                src: 'img/gallery/IMG_8031.jpg',
+                pos: 'center 40%',
+                tag: '7月夏あそび',
+                caption: '冷たい氷に触れてひんやり感触あそび！暑い夏も五感を使って楽しく涼しく過ごします🧊'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_4916.jpg',
-                tag: '8月　夏祭りイベント',
+                tag: '8月夏祭り',
                 caption: '大人気イベント！！きんぎょすくいやおかしつりなど、お祭りの遊びが沢山楽しめます！'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_9420.jpg',
                 pos: 'center 52%',
-                tag: '10月　フィンガーアート',
-                caption: '世界にひとつだけのキャンバスアート製作🎨 お部屋に飾れる思い出の作品づくり。'
+                tag: '10月マルシェ',
+                caption: 'マルシェでのワークショップ出店🎨 お子様一人ひとりの感性を大切に、思い出に残る作品づくりを行います。'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_8694.jpg',
-                tag: '10月　ハロウィンパーティー',
+                tag: '10月ハロウィンパーティー',
                 caption: '手作りのメダルとお菓子をプレゼント！みんな仮装をして参加してくれました🎃'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_1260.jpg',
-                tag: '12月　クリスマスパーティー',
+                tag: '12月クリスマスパーティー',
                 caption: '手作りリース製作🎄笑顔あふれる温かい親子時間になりました！'
             },
             {
                 category: 'event',
                 src: 'img/gallery/IMG_1750.jpg',
-                tag: '1月　雪あそびイベント',
+                tag: '1月雪あそびイベント',
                 caption: 'ふわふわのフェイクスノーを使って雪あそび！室内で楽しめる感触あそびのイベントです⛄'
             },
             {
                 category: 'event',
-                src: 'img/gallery/spring_festival.jpg',
-                tag: '2月　春祭り',
+                src: 'img/gallery/IMG_6499.jpg',
+                tag: '2月春祭り',
                 caption: '春の訪れを楽しむ季節のイベント🌸 親子で笑顔あふれるあたたかいひとときを過ごします。'
             }
 
@@ -2307,14 +2213,17 @@
             // ,{ category: 'sitter', src: 'img/gallery/IMG_3106.jpg', pos: 'center 60%', tag: 'おうち保育', caption: 'ご自宅の慣れた環境でリラックス。月齢やその日のご機嫌に合わせて、安全で心地よい時間を過ごします。' }
             // ,{ category: 'sitter', src: 'img/gallery/IMG_3593.jpg', pos: 'center 40%', tag: '知育あそび', caption: '磁石のブロックで形づくりに夢中！遊びの中で自然とお子様の好奇心や発想力を育みます。' }
             // ,{ category: 'sitter', src: 'img/gallery/IMG_5701.jpg', pos: 'center 65%', tag: '室内あそび', caption: 'お部屋の中でもカラフルなボールプールで大盛り上がり！雨の日でも楽しく体を動かして遊べます。' }
-            // ,{ category: 'event', src: 'img/gallery/IMG_3784.jpg', pos: 'center 35%', tag: '5月　えのぐあそび', caption: 'スモックを着て準備万端！「たのしいね！」とハイタッチしながら、お子様のワクワクする気持ちを引き出します。' }
-            // ,{ category: 'event', src: 'img/gallery/IMG_9389.jpg', pos: 'center 48%', tag: '10月　フィンガーアート', caption: 'お子様のイニシャルが浮かび上がるおしゃれなアート作品。色彩の重なりを楽しみながら親子で製作します。' }
-            // ,{ category: 'event', src: 'img/gallery/IMG_1202.jpg', pos: 'center 38%', tag: '12月　クリスマス製作', caption: 'ちいさなサンタさんが筆を持って真剣な表情で絵付け体験！おうちではできない製作もイベントで気軽に楽しめます。' }
-            // ,{ category: 'event', src: 'img/gallery/IMG_8694.jpg', tag: '10月　ハロウィンパーティー', caption: 'ハロウィンイベントでプレゼントした手作りのカボチャメダル🎃 一つひとつ心を込めてご用意しています。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_3784.jpg', pos: 'center 35%', tag: '5月えのぐあそび', caption: 'スモックを着て準備万端！「たのしいね！」とハイタッチしながら、お子様のワクワクする気持ちを引き出します。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_9389.jpg', pos: 'center 48%', tag: '10月フィンガーアート', caption: 'お子様のイニシャルが浮かび上がるおしゃれなアート作品。色彩の重なりを楽しみながら親子で製作します。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_1202.jpg', pos: 'center 38%', tag: '12月クリスマス製作', caption: 'ちいさなサンタさんが筆を持って真剣な表情で絵付け体験！おうちではできない製作もイベントで気軽に楽しめます。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_8694.jpg', tag: '10月ハロウィンパーティー', caption: 'ハロウィンイベントでプレゼントした手作りのカボチャメダル🎃 一つひとつ心を込めてご用意しています。' }
         ];
 
-        // フォトギャラリー描画 & タブ切り替え処理
-        const galleryGrid = document.getElementById('galleryGrid');
+        // フォトギャラリー（PC版：3列グリッド / 携帯版：1枚ずつのスライド表示）
+        const galleryTrack = document.getElementById('galleryTrack');
+        const galleryDots = document.getElementById('galleryDots');
+        const galleryPrev = document.getElementById('galleryPrev');
+        const galleryNext = document.getElementById('galleryNext');
         const galleryTabs = document.querySelectorAll('.gallery-tab');
         const galleryModal = document.getElementById('galleryModal');
         const galleryModalImg = document.getElementById('galleryModalImg');
@@ -2326,10 +2235,22 @@
         document.getElementById('countSitter').textContent = GALLERY_ITEMS.filter(item => item.category === 'sitter').length;
         document.getElementById('countEvent').textContent = GALLERY_ITEMS.filter(item => item.category === 'event').length;
 
+        let galleryCurrentIndex = 0;
+        let galleryTotalSlides = 0;
+        let galleryAutoSlideTimer = null;
+
         function renderGallery(category) {
-            galleryGrid.innerHTML = '';
+            galleryTrack.innerHTML = '';
+            galleryDots.innerHTML = '';
+            galleryCurrentIndex = 0;
+
             const items = GALLERY_ITEMS.filter(item => item.category === category);
-            items.forEach(item => {
+            galleryTotalSlides = items.length;
+
+            items.forEach((item, slideIdx) => {
+                const slideEl = document.createElement('div');
+                slideEl.className = 'gallery-slide';
+
                 const card = document.createElement('article');
                 card.className = 'gallery-card';
                 const posStyle = item.pos ? ` style="object-position: ${item.pos};"` : '';
@@ -2350,9 +2271,82 @@
                     galleryModal.classList.add('open');
                     galleryModal.setAttribute('aria-hidden', 'false');
                 });
-                galleryGrid.appendChild(card);
+
+                slideEl.appendChild(card);
+                galleryTrack.appendChild(slideEl);
+
+                // ドット生成（携帯版スライダー用）
+                const dot = document.createElement('button');
+                dot.className = 'slider-dot' + (slideIdx === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `写真 ${slideIdx + 1}`);
+                dot.addEventListener('click', () => {
+                    goToGallerySlide(slideIdx);
+                    restartGalleryAutoSlide();
+                });
+                galleryDots.appendChild(dot);
+            });
+
+            updateGallerySlider();
+            restartGalleryAutoSlide();
+        }
+
+        function updateGallerySlider() {
+            galleryTrack.style.setProperty('--gallery-transform', `translateX(-${galleryCurrentIndex * 100}%)`);
+            const dots = galleryDots.querySelectorAll('.slider-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === galleryCurrentIndex);
             });
         }
+
+        function goToGallerySlide(index) {
+            if (galleryTotalSlides === 0) return;
+            galleryCurrentIndex = (index + galleryTotalSlides) % galleryTotalSlides;
+            updateGallerySlider();
+        }
+
+        galleryPrev.addEventListener('click', () => {
+            goToGallerySlide(galleryCurrentIndex - 1);
+            restartGalleryAutoSlide();
+        });
+
+        galleryNext.addEventListener('click', () => {
+            goToGallerySlide(galleryCurrentIndex + 1);
+            restartGalleryAutoSlide();
+        });
+
+        function startGalleryAutoSlide() {
+            clearInterval(galleryAutoSlideTimer);
+            galleryAutoSlideTimer = setInterval(() => {
+                goToGallerySlide(galleryCurrentIndex + 1);
+            }, 6000);
+        }
+
+        function restartGalleryAutoSlide() {
+            clearInterval(galleryAutoSlideTimer);
+            startGalleryAutoSlide();
+        }
+
+        // スマホ向けタッチスワイプ対応
+        let galleryTouchStartX = 0;
+        let galleryTouchEndX = 0;
+        const galleryWindowEl = document.getElementById('galleryWindow');
+
+        galleryWindowEl.addEventListener('touchstart', e => {
+            galleryTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        galleryWindowEl.addEventListener('touchend', e => {
+            galleryTouchEndX = e.changedTouches[0].screenX;
+            const diff = galleryTouchStartX - galleryTouchEndX;
+            if (Math.abs(diff) > 40) {
+                if (diff > 0) {
+                    goToGallerySlide(galleryCurrentIndex + 1);
+                } else {
+                    goToGallerySlide(galleryCurrentIndex - 1);
+                }
+                restartGalleryAutoSlide();
+            }
+        }, { passive: true });
 
         galleryTabs.forEach(tab => {
             tab.addEventListener('click', () => {
