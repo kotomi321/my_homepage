@@ -628,6 +628,315 @@
             transform: scale(1.35);
         }
 
+        /* --- フォトギャラリー（Photo Gallery） --- */
+        .gallery-lead {
+            text-align: center;
+            color: var(--sub-text);
+            font-size: 0.95rem;
+            margin: -24px auto 32px;
+        }
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .gallery-tab {
+            appearance: none;
+            border: 2px solid var(--pink-light);
+            background: var(--white);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(210, 110, 115, 0.08);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .gallery-tab:hover {
+            border-color: var(--pink);
+            color: var(--pink-deep);
+            transform: translateY(-2px);
+        }
+        .gallery-tab.active {
+            background: var(--pink-deep);
+            border-color: var(--pink-deep);
+            color: var(--white);
+            box-shadow: 0 6px 18px rgba(207, 99, 108, 0.28);
+        }
+        .gallery-tab .tab-count {
+            font-size: 0.78rem;
+            font-weight: 500;
+            background: rgba(253, 241, 236, 0.9);
+            color: var(--pink-deep);
+            padding: 2px 9px;
+            border-radius: 999px;
+            line-height: 1.4;
+        }
+        .gallery-tab.active .tab-count {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--white);
+        }
+        /* --- サービス内容：対応可能な保育・サポート内容 --- */
+        .service-support-wrapper {
+            margin-top: 52px;
+            background: var(--white);
+            border-radius: 24px;
+            border: 2px solid var(--pink-light);
+            box-shadow: 0 8px 24px rgba(210, 110, 115, 0.08);
+            padding: 38px 36px 42px;
+        }
+        .service-support-head {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .service-support-badge {
+            display: inline-block;
+            background: var(--pink-bg);
+            color: var(--pink-deep);
+            border: 1px solid var(--pink-light);
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 18px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .service-support-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+            margin-bottom: 8px;
+        }
+        .service-support-lead {
+            font-size: 0.92rem;
+            color: var(--sub-text);
+            margin: 0;
+            line-height: 1.8;
+        }
+        .service-support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .support-card {
+            background: var(--pink-bg);
+            border: 1px solid rgba(244, 199, 195, 0.7);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+        }
+        .support-card:hover {
+            background: var(--white);
+            border-color: var(--pink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(210, 110, 115, 0.15);
+        }
+        .support-icon {
+            font-size: 1.55rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .support-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .support-name {
+            font-size: 0.94rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .support-desc {
+            font-size: 0.78rem;
+            color: var(--sub-text);
+            margin: 3px 0 0;
+            line-height: 1.4;
+        }
+        @media (max-width: 992px) {
+            .service-support-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .service-support-wrapper {
+                padding: 24px 16px 28px;
+                margin-top: 36px;
+                border-radius: 18px;
+            }
+            .service-support-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .service-support-title {
+                font-size: 1.18rem;
+            }
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .gallery-card {
+            background: var(--white);
+            border: 1px solid var(--pink-light);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(210, 110, 115, 0.09);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: galleryFadeIn 0.4s ease both;
+        }
+        @keyframes galleryFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(210, 110, 115, 0.18);
+        }
+        .gallery-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--pink-bg);
+        }
+        .gallery-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+        .gallery-card:hover .gallery-img-wrap img {
+            transform: scale(1.05);
+        }
+        .gallery-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 252, 249, 0.94);
+            color: var(--pink-deep);
+            border: 1px solid var(--pink-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 11px;
+            border-radius: 999px;
+            box-shadow: 0 2px 8px rgba(89, 68, 64, 0.12);
+            line-height: 1.5;
+        }
+        .gallery-caption-wrap {
+            padding: 14px 16px 16px;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            background: var(--white);
+            border-top: 1px dashed rgba(244, 199, 195, 0.6);
+        }
+        .gallery-caption {
+            font-size: 0.86rem;
+            line-height: 1.75;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        /* ギャラリー拡大モーダル（Lightbox） */
+        .gallery-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(55, 38, 35, 0.78);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .gallery-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .gallery-modal-inner {
+            position: relative;
+            background: var(--white);
+            border-radius: 22px;
+            max-width: 680px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+            border: 2px solid var(--pink-light);
+        }
+        .gallery-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--pink-light);
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--pink-deep);
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        }
+        .gallery-modal-img-wrap {
+            width: 100%;
+            max-height: 68vh;
+            background: var(--cream-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .gallery-modal-img-wrap img {
+            max-width: 100%;
+            max-height: 68vh;
+            object-fit: contain;
+        }
+        .gallery-modal-body {
+            padding: 18px 24px 22px;
+            text-align: center;
+            border-top: 1px solid var(--pink-light);
+        }
+        .gallery-modal-tag {
+            display: inline-block;
+            background: var(--pink-bg);
+            color: var(--pink-deep);
+            border: 1px solid var(--pink-light);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 14px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+        }
+        .gallery-modal-caption {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-color);
+        }
+
         /* --- 料金表 --- */
         .price-box {
             max-width: 680px;
@@ -947,6 +1256,111 @@
 
             .service-grid { grid-template-columns: 1fr; }
             .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
+            /* --- サービス内容：対応可能な保育・サポート内容 --- */
+        .service-support-wrapper {
+            margin-top: 52px;
+            background: var(--white);
+            border-radius: 24px;
+            border: 2px solid var(--pink-light);
+            box-shadow: 0 8px 24px rgba(210, 110, 115, 0.08);
+            padding: 38px 36px 42px;
+        }
+        .service-support-head {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .service-support-badge {
+            display: inline-block;
+            background: var(--pink-bg);
+            color: var(--pink-deep);
+            border: 1px solid var(--pink-light);
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 18px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .service-support-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+            margin-bottom: 8px;
+        }
+        .service-support-lead {
+            font-size: 0.92rem;
+            color: var(--sub-text);
+            margin: 0;
+            line-height: 1.8;
+        }
+        .service-support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .support-card {
+            background: var(--pink-bg);
+            border: 1px solid rgba(244, 199, 195, 0.7);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+        }
+        .support-card:hover {
+            background: var(--white);
+            border-color: var(--pink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(210, 110, 115, 0.15);
+        }
+        .support-icon {
+            font-size: 1.55rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .support-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .support-name {
+            font-size: 0.94rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .support-desc {
+            font-size: 0.78rem;
+            color: var(--sub-text);
+            margin: 3px 0 0;
+            line-height: 1.4;
+        }
+        @media (max-width: 992px) {
+            .service-support-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .service-support-wrapper {
+                padding: 24px 16px 28px;
+                margin-top: 36px;
+                border-radius: 18px;
+            }
+            .service-support-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .service-support-title {
+                font-size: 1.18rem;
+            }
+        }
+
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .gallery-tab { padding: 10px 20px; font-size: 0.9rem; }
+            .gallery-caption-wrap { padding: 10px 12px 12px; }
+            .gallery-caption { font-size: 0.78rem; line-height: 1.65; }
+            .gallery-tag { font-size: 0.68rem; padding: 2px 8px; top: 8px; left: 8px; }
             .slider-wrapper { padding: 0 6px; }
             .review-card { padding: 32px 20px 36px; min-height: 300px; }
             .review-title { font-size: 1.1rem; }
@@ -979,6 +1393,7 @@
                 <li><a href="#about"><small>Concept</small>理念・紹介</a></li>
                 <li><a href="#philosophy"><small>Philosophy</small>企業理念</a></li>
                 <li><a href="#service"><small>Service</small>サービス</a></li>
+                <li><a href="#gallery"><small>Gallery</small>フォトギャラリー</a></li>
                 <li><a href="#review"><small>Voice</small>お客様の声</a></li>
                 <li><a href="#price"><small>Price</small>料金</a></li>
                 <li><a href="#howto"><small>How To</small>ご利用ガイド</a></li>
@@ -1216,6 +1631,149 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 対応可能な保育・サポート内容一覧 -->
+            <div class="service-support-wrapper fade">
+                <div class="service-support-head">
+                    <span class="service-support-badge">Support Menu</span>
+                    <h3 class="service-support-title">対応可能な保育・サポート内容</h3>
+                    <p class="service-support-lead">ご家庭の日常からお出かけ・イベントまで、幅広いシチュエーションに寄り添い柔軟に対応いたします。</p>
+                </div>
+                <div class="service-support-grid">
+                    <div class="support-card">
+                        <span class="support-icon">👶</span>
+                        <div class="support-info">
+                            <h4 class="support-name">乳児保育</h4>
+                            <p class="support-desc">離乳食・沐浴・授乳などもサポート可</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">👫</span>
+                        <div class="support-info">
+                            <h4 class="support-name">きょうだい児保育</h4>
+                            <p class="support-desc">最大３名まで</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🚗</span>
+                        <div class="support-info">
+                            <h4 class="support-name">送迎サポート</h4>
+                            <p class="support-desc">保育園・習い事・職場など柔軟に対応</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🌳</span>
+                        <div class="support-info">
+                            <h4 class="support-name">外遊び・お散歩</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">✂️</span>
+                        <div class="support-info">
+                            <h4 class="support-name">季節の製作</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🖐️</span>
+                        <div class="support-info">
+                            <h4 class="support-name">知育あそび</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">✨</span>
+                        <div class="support-info">
+                            <h4 class="support-name">感触あそび</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🐢</span>
+                        <div class="support-info">
+                            <h4 class="support-name">お出かけサポート・同行</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🌡️</span>
+                        <div class="support-info">
+                            <h4 class="support-name">病児・病後児保育</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🏢</span>
+                        <div class="support-info">
+                            <h4 class="support-name">企業内託児</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🏃</span>
+                        <div class="support-info">
+                            <h4 class="support-name">運動遊び</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🏨</span>
+                        <div class="support-info">
+                            <h4 class="support-name">ホテルシッティング</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">💒</span>
+                        <div class="support-info">
+                            <h4 class="support-name">結婚式・イベント託児</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🌙</span>
+                        <div class="support-info">
+                            <h4 class="support-name">夜間・早朝・宿泊サポート</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🏥</span>
+                        <div class="support-info">
+                            <h4 class="support-name">病院や園行事の付き添い</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">✏️</span>
+                        <div class="support-info">
+                            <h4 class="support-name">宿題サポート</h4>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <span class="support-icon">🎹</span>
+                        <div class="support-info">
+                            <h4 class="support-name">ピアノレッスン</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フォトギャラリー（Photo Gallery：ベビーシッター / イベント切り替え） -->
+    <section id="gallery" class="gallery-section bg-pattern-linen">
+        <div class="container">
+            <div class="section-head fade">
+                <h2 class="en">Photo Gallery</h2>
+                <span class="ja">フォトギャラリー</span>
+                <svg class="head-deco" viewBox="0 0 120 16" aria-hidden="true"><line x1="8" y1="8" x2="44" y2="8" stroke="#f2bdb9" stroke-width="1.5" stroke-linecap="round"/><circle cx="50" cy="8" r="2" fill="#eba39f"/><path d="M60 13.2 C60 13.2 54 9.2 54 6 A3.1 3.1 0 0 1 60 4.6 A3.1 3.1 0 0 1 66 6 C66 9.2 60 13.2 60 13.2 Z" fill="#e6858b"/><circle cx="70" cy="8" r="2" fill="#eba39f"/><line x1="76" y1="8" x2="112" y2="8" stroke="#f2bdb9" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p class="gallery-lead fade">日々のシッティングや、季節のイベント・ワークショップの様子をご紹介します。</p>
+
+            <!-- カテゴリ切り替えタブ -->
+            <div class="gallery-tabs fade" role="tablist" aria-label="ギャラリーカテゴリ">
+                <button type="button" class="gallery-tab active" data-gallery-cat="sitter" role="tab" aria-selected="true">
+                    <span>ベビーシッター</span>
+                    <span class="tab-count" id="countSitter">9</span>
+                </button>
+                <button type="button" class="gallery-tab" data-gallery-cat="event" role="tab" aria-selected="false">
+                    <span>イベント</span>
+                    <span class="tab-count" id="countEvent">9</span>
+                </button>
+            </div>
+
+            <!-- 写真一覧グリッド（下のスクリプトの GALLERY_ITEMS から自動生成されます） -->
+            <div class="gallery-grid fade" id="galleryGrid"></div>
         </div>
     </section>
 
@@ -1582,6 +2140,7 @@
                 <a href="#about">理念・紹介</a>
                 <a href="#philosophy">企業理念</a>
                 <a href="#service">サービス</a>
+                <a href="#gallery">フォトギャラリー</a>
                 <a href="#review">お客様の声</a>
                 <a href="#price">料金</a>
                 <a href="#howto">ご利用ガイド</a>
@@ -1592,11 +2151,235 @@
         </div>
     </footer>
 
+    <!-- フォトギャラリー拡大表示モーダル -->
+    <div class="gallery-modal" id="galleryModal" aria-hidden="true">
+        <div class="gallery-modal-inner" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+            <button type="button" class="gallery-modal-close" id="galleryModalClose" aria-label="閉じる">✕</button>
+            <div class="gallery-modal-img-wrap">
+                <img id="galleryModalImg" src="" alt="">
+            </div>
+            <div class="gallery-modal-body">
+                <span class="gallery-modal-tag" id="galleryModalTag"></span>
+                <p class="gallery-modal-caption" id="galleryModalCaption"></p>
+            </div>
+        </div>
+    </div>
+
     <a href="https://lin.ee/BAxbob2" class="fixed-line-btn" target="_blank">
         <span>💬 LINEで予約・相談</span>
     </a>
 
     <script>
+        // =========================================================================
+        // 【フォトギャラリーの写真・キャプション設定】
+        // 今後、写真を追加・変更・並び替えしたい場合は、以下のリストを編集するだけで反映されます！
+        //
+        // ■ 追加・変更の手順：
+        //   1. `img/gallery/` フォルダに写真ファイル（.jpg / .png 等）を入れる
+        //   2. 下の GALLERY_ITEMS に 1行追加（または書き換え）する
+        //      - category: 'sitter'（ベビーシッター） または 'event'（イベント）
+        //      - src     : 画像のパス（例: 'img/gallery/IMG_0000.jpg'）
+        //      - tag     : 写真左上のラベル名
+        //      - caption : 写真の下に表示する説明文（キャプション）
+        // =========================================================================
+        const GALLERY_ITEMS = [
+            // ---------------- ベビーシッター（category: 'sitter'） ----------------
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_7821.jpg',
+                pos: 'center 25%',
+                tag: '0歳児乳児保育',
+                caption: '生まれて初めの保育。お子様が安心して過ごせるよう、一人ひとりに寄り添います。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_5377.jpg',
+                tag: 'きょうだい児保育',
+                caption: 'きょうだい一緒にお預かりも可能！みんなが笑顔でふれあう、穏やかなおうち時間です。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_1861.jpg',
+                pos: 'center 38%',
+                tag: '外遊び',
+                caption: 'お天気の良い日は公園でのびのび外遊び！とびきりの笑顔を見せてくれました。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_5923.jpg',
+                tag: '送迎サポート',
+                caption: '保育園や習い事の送迎も安全第一でサポート。公共交通機関・徒歩・車での送迎が可能です。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_0537.jpg',
+                tag: '折り紙・製作あそび',
+                caption: '折り紙で作ったカラフルな指人形をつけてニッコリ！お子様の「できた！」の気持ちを大切にします。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_4304.jpg',
+                tag: 'シール遊び',
+                caption: '大好きなキャラクターのシール貼りに集中！指先を使って真剣に貼っていました！'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_6971.jpg',
+                pos: 'center 45%',
+                tag: '感触遊び',
+                caption: 'ぷにぷに・キラキラの手作りセンサリートイに興味津々。五感を刺激する知育おもちゃを取り入れています。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_4732.jpg',
+                pos: 'center 35%',
+                tag: 'ごっこ遊び',
+                caption: '「いらっしゃいませ〜！」とおうちでお店屋さんごっこ。お子様の「やりたい！」の気持ちに共感しながら遊びます。'
+            },
+            {
+                category: 'sitter',
+                src: 'img/gallery/IMG_4540.jpg',
+                pos: 'center 45%',
+                tag: 'お出かけサポート',
+                caption: '外出先でカメさんを発見！お子様が目を輝かせる、ワクワク体験も安全にサポートします。'
+            },
+
+            // ---------------- イベント（category: 'event'：4月〜3月の順番） ----------------
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_3185.jpg',
+                pos: 'center 52%',
+                tag: '4月　イースターパーティー',
+                caption: 'パステルカラーのバルーンフォトブースで撮影🐰 可愛いウサギさんに変身して！'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_6079.jpg',
+                pos: 'center 50%',
+                tag: '5月　えのぐあそび',
+                caption: '大きな模造紙いっぱいに手足を使ってダイナミックにお絵かき！思いっきり表現する楽しさを味わいます。'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_7675.jpg',
+                tag: '7月　ワークショップ',
+                caption: '大人も子どもも楽しめるジェルポット作り✨ 好きなパーツや色を選んで、ずっと眺めていたくなる宝物に。'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_4916.jpg',
+                tag: '8月　夏祭りイベント',
+                caption: '大人気イベント！！きんぎょすくいやおかしつりなど、お祭りの遊びが沢山楽しめます！'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_9420.jpg',
+                pos: 'center 52%',
+                tag: '10月　フィンガーアート',
+                caption: '世界にひとつだけのキャンバスアート製作🎨 お部屋に飾れる思い出の作品づくり。'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_8694.jpg',
+                tag: '10月　ハロウィンパーティー',
+                caption: '手作りのメダルとお菓子をプレゼント！みんな仮装をして参加してくれました🎃'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_1260.jpg',
+                tag: '12月　クリスマスパーティー',
+                caption: '手作りリース製作🎄笑顔あふれる温かい親子時間になりました！'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/IMG_1750.jpg',
+                tag: '1月　雪あそびイベント',
+                caption: 'ふわふわのフェイクスノーを使って雪あそび！室内で楽しめる感触あそびのイベントです⛄'
+            },
+            {
+                category: 'event',
+                src: 'img/gallery/spring_festival.jpg',
+                tag: '2月　春祭り',
+                caption: '春の訪れを楽しむ季節のイベント🌸 親子で笑顔あふれるあたたかいひとときを過ごします。'
+            }
+
+            // --- 予備の写真（img/gallery/ に変換済み。先頭の // を消すだけでいつでも追加できます） ---
+            // ,{ category: 'sitter', src: 'img/gallery/IMG_3106.jpg', pos: 'center 60%', tag: 'おうち保育', caption: 'ご自宅の慣れた環境でリラックス。月齢やその日のご機嫌に合わせて、安全で心地よい時間を過ごします。' }
+            // ,{ category: 'sitter', src: 'img/gallery/IMG_3593.jpg', pos: 'center 40%', tag: '知育あそび', caption: '磁石のブロックで形づくりに夢中！遊びの中で自然とお子様の好奇心や発想力を育みます。' }
+            // ,{ category: 'sitter', src: 'img/gallery/IMG_5701.jpg', pos: 'center 65%', tag: '室内あそび', caption: 'お部屋の中でもカラフルなボールプールで大盛り上がり！雨の日でも楽しく体を動かして遊べます。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_3784.jpg', pos: 'center 35%', tag: '5月　えのぐあそび', caption: 'スモックを着て準備万端！「たのしいね！」とハイタッチしながら、お子様のワクワクする気持ちを引き出します。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_9389.jpg', pos: 'center 48%', tag: '10月　フィンガーアート', caption: 'お子様のイニシャルが浮かび上がるおしゃれなアート作品。色彩の重なりを楽しみながら親子で製作します。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_1202.jpg', pos: 'center 38%', tag: '12月　クリスマス製作', caption: 'ちいさなサンタさんが筆を持って真剣な表情で絵付け体験！おうちではできない製作もイベントで気軽に楽しめます。' }
+            // ,{ category: 'event', src: 'img/gallery/IMG_8694.jpg', tag: '10月　ハロウィンパーティー', caption: 'ハロウィンイベントでプレゼントした手作りのカボチャメダル🎃 一つひとつ心を込めてご用意しています。' }
+        ];
+
+        // フォトギャラリー描画 & タブ切り替え処理
+        const galleryGrid = document.getElementById('galleryGrid');
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryModalImg = document.getElementById('galleryModalImg');
+        const galleryModalTag = document.getElementById('galleryModalTag');
+        const galleryModalCaption = document.getElementById('galleryModalCaption');
+        const galleryModalClose = document.getElementById('galleryModalClose');
+
+        // 枚数バッジの自動更新
+        document.getElementById('countSitter').textContent = GALLERY_ITEMS.filter(item => item.category === 'sitter').length;
+        document.getElementById('countEvent').textContent = GALLERY_ITEMS.filter(item => item.category === 'event').length;
+
+        function renderGallery(category) {
+            galleryGrid.innerHTML = '';
+            const items = GALLERY_ITEMS.filter(item => item.category === category);
+            items.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'gallery-card';
+                const posStyle = item.pos ? ` style="object-position: ${item.pos};"` : '';
+                card.innerHTML = `
+                    <div class="gallery-img-wrap">
+                        <img src="${item.src}" alt="${item.tag} - ${item.caption}" loading="lazy"${posStyle}>
+                        <span class="gallery-tag">${item.tag}</span>
+                    </div>
+                    <div class="gallery-caption-wrap">
+                        <p class="gallery-caption">${item.caption}</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    galleryModalImg.src = item.src;
+                    galleryModalImg.alt = item.tag;
+                    galleryModalTag.textContent = item.tag;
+                    galleryModalCaption.textContent = item.caption;
+                    galleryModal.classList.add('open');
+                    galleryModal.setAttribute('aria-hidden', 'false');
+                });
+                galleryGrid.appendChild(card);
+            });
+        }
+
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                galleryTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                renderGallery(tab.getAttribute('data-gallery-cat'));
+            });
+        });
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('open');
+            galleryModal.setAttribute('aria-hidden', 'true');
+        }
+        galleryModalClose.addEventListener('click', closeGalleryModal);
+        galleryModal.addEventListener('click', e => {
+            if (e.target === galleryModal) closeGalleryModal();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && galleryModal.classList.contains('open')) closeGalleryModal();
+        });
+
+        // 初期表示（ベビーシッター）
+        renderGallery('sitter');
         // メニュー開閉
         const body = document.body;
         document.getElementById('menuBtn').addEventListener('click', () => body.classList.toggle('menu-open'));
